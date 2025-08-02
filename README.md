@@ -8,7 +8,7 @@ This single-page interactive site features animated transitions, clickable statu
 
 ## 🔗 Live Demo
 
-> *Coming soon or host locally with your browser!*
+> *Coming soon*
 
 ---
 
