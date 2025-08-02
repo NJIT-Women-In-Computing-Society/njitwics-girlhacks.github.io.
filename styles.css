@@ -308,13 +308,13 @@ html, body {
 @media (max-width: 480px) {
 
   .start-page {
-    padding: 15px 8px;
+    padding: 10px 8px;
     height: auto;
     justify-content: center;
   }
 
   .start-page h1 {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
   }
 
   .start-page h3 {
@@ -329,7 +329,7 @@ html, body {
   .enter-btn,
   .register-btn,
   .sponsor-btn {
-    padding: 10px 20px;
+    padding: 5px 10px;
     font-size: 1rem;
   }
 
@@ -360,7 +360,7 @@ html, body {
   .statue-2,
   .statue-3,
   .statue-4 {
-    height: 180px;
+    height: 100px;
     padding-left: 0;
   }
 
