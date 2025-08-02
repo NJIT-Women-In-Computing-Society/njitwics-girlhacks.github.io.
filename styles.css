@@ -314,7 +314,7 @@ html, body {
   }
 
   .start-page h1 {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
   .start-page h3 {
@@ -323,7 +323,7 @@ html, body {
 
   .start-page p {
     font-size: 0.75rem;
-    padding: 0.8rem 1.5rem;
+    padding: 0.5rem 0.8rem;
   }
 
   .enter-btn,
@@ -351,7 +351,7 @@ html, body {
   }
 
   .statue-container {
-    bottom: 200px;
+    bottom: 100px;
     flex-direction: row;
     flex-wrap: wrap;
   }
