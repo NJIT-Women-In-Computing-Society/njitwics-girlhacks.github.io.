@@ -314,15 +314,15 @@ html, body {
   }
 
   .start-page h1 {
-    font-size: 1.2rem;
+    font-size: 0.75rem;
   }
 
   .start-page h3 {
-    font-size: 1rem;
+    font-size: 0.5rem;
   }
 
   .start-page p {
-    font-size: 0.9rem;
+    font-size: 0.5rem;
     padding: 0.8rem 1.5rem;
   }
 
@@ -330,7 +330,7 @@ html, body {
   .register-btn,
   .sponsor-btn {
     padding: 5px 10px;
-    font-size: 1rem;
+    font-size: 0.75rem;
   }
 
   .page {
