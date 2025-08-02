@@ -295,7 +295,7 @@ html, body {
 }
 
   .statue-container {
-    bottom: 275px;
+    bottom: 100px;
     flex-wrap: wrap;
   }
 
@@ -314,15 +314,15 @@ html, body {
   }
 
   .start-page h1 {
-    font-size: 0.75rem;
+    font-size: 1rem;
   }
 
   .start-page h3 {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
   }
 
   .start-page p {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
     padding: 0.8rem 1.5rem;
   }
 
