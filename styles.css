@@ -351,7 +351,7 @@ html, body {
   }
 
   .statue-container {
-    bottom: 300px;
+    bottom: 350px;
     flex-direction: row;
     flex-wrap: wrap;
   }
@@ -360,7 +360,7 @@ html, body {
   .statue-2,
   .statue-3,
   .statue-4 {
-    height: 100px;
+    height: 150px;
     padding-left: 0;
   }
 
