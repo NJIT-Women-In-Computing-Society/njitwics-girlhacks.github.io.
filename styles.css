@@ -307,6 +307,11 @@ html, body {
 
 @media (max-width: 480px) {
 
+  #backgroundA {
+    background-image: url('assets/first-background.svg'),
+    linear-gradient(to bottom, #173E3F 45%, #52836F 55%);
+  }
+
   .start-page {
     padding: 10px 8px;
     height: auto;
@@ -315,10 +320,12 @@ html, body {
 
   .start-page h1 {
     font-size: 1.5rem;
+    margin-top: 13rem;
   }
 
   .start-page h3 {
     font-size: 0.75rem;
+    margin-top: 0.2rem;
   }
 
   .start-page p {
@@ -326,11 +333,16 @@ html, body {
     padding: 0.5rem 0.8rem;
   }
 
-  .enter-btn,
   .register-btn,
   .sponsor-btn {
     padding: 5px 10px;
     font-size: 0.75rem;
+  }
+
+  .enter-btn {
+    margin-top:10rem;
+    font-size: 1rem;
+    padding: 10px 12px;
   }
 
   .page {
