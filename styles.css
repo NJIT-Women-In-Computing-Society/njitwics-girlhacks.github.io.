@@ -152,7 +152,7 @@ html, body {
 /* Statue container */
 .statue-container {
   position: absolute;
-  bottom: 130px;           
+  bottom: 5px;           
   left: 0;
   width: 100%;            
   display: flex;
@@ -165,18 +165,18 @@ html, body {
 .statue-2,
 .statue-3,
 .statue-4 {
-  height: 550px;
+  height: 100vh;
   width: auto;
   opacity: 0.85;
   transition: transform 0.3s ease;
 }
 
 .statue-1 {
-  padding-left: 10px;
+  margin-left: 25px;
 }
 
 .statue-2 {
-  padding-left: 50px;
+  padding-left: 10px;
 }
 
 .statue-1:hover, .statue-2:hover, .statue-3:hover, .statue-4:hover {
