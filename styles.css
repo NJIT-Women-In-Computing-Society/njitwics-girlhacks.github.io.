@@ -152,16 +152,14 @@ html, body {
 /* Statue container */
 .statue-container {
   position: absolute;
-  bottom: 0;            /* Always aligned to the bottom of backgroundB */
+  bottom: 130px;           
   left: 0;
-  width: 100%;
+  width: 100%;            
   display: flex;
-  justify-content: space-around;
+  justify-content: space-around; 
   align-items: flex-end;
-  z-index: 2;
-  pointer-events: none; /* Optional: statues won’t block clicks */
+  z-index: 2;         
 }
-
 
 .statue-1,
 .statue-2,
@@ -288,12 +286,18 @@ html, body {
     padding-left: 10px;
   }
 
+
   .statue-1:hover,
   .statue-2:hover,
   .statue-3:hover,
   .statue-4:hover {
   transform: scale(1.05);
 }
+
+  .statue-container {
+    bottom: 100px;
+    flex-wrap: wrap;
+  }
 
   .social-icons a img {
     width: 60px;
@@ -303,30 +307,42 @@ html, body {
 
 @media (max-width: 480px) {
 
+  #backgroundA {
+    background-image: url('assets/first-background.svg'),
+    linear-gradient(to bottom, #173E3F 45%, #52836F 55%);
+  }
+
   .start-page {
-    padding: 15px 8px;
+    padding: 10px 8px;
     height: auto;
     justify-content: center;
   }
 
   .start-page h1 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    margin-top: 13rem;
   }
 
   .start-page h3 {
-    font-size: 1rem;
+    font-size: 0.75rem;
+    margin-top: 0.2rem;
   }
 
   .start-page p {
-    font-size: 0.9rem;
-    padding: 0.8rem 1.5rem;
+    font-size: 0.75rem;
+    padding: 0.5rem 0.8rem;
   }
 
-  .enter-btn,
   .register-btn,
   .sponsor-btn {
-    padding: 10px 20px;
+    padding: 5px 10px;
+    font-size: 0.75rem;
+  }
+
+  .enter-btn {
+    margin-top:10rem;
     font-size: 1rem;
+    padding: 10px 12px;
   }
 
   .page {
@@ -346,11 +362,17 @@ html, body {
     line-height: 1.4;
   }
 
+  .statue-container {
+    bottom: 300px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
   .statue-1,
   .statue-2,
   .statue-3,
   .statue-4 {
-    height: 180px;
+    height: 150px;
     padding-left: 0;
   }
 
