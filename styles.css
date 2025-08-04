@@ -247,7 +247,12 @@ html, body {
 
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 770px) {
+
+  #backgroundA {
+    background-image: url('assets/first-background.svg'),
+    linear-gradient(to bottom, #173E3F 45%, #52836F 55%);
+  }
 
   .start-page {
     padding: 20px 10px;
@@ -275,7 +280,7 @@ html, body {
   .statue-2,
   .statue-3,
   .statue-4 {
-    height: 275px;
+    height: 400px;
   }
 
   .statue-1 {
@@ -295,7 +300,7 @@ html, body {
 }
 
   .statue-container {
-    bottom: 100px;
+    bottom: 300px;
     flex-wrap: wrap;
   }
 
