@@ -392,6 +392,20 @@ html, body {
   }
 }
 
+@media (max-width: 393px){
+  .statue-container {
+      bottom: 320px;
+      flex-direction: row;
+      flex-wrap: wrap;
+  }
+  .statue-1, .statue-2, .statue-3, .statue-4 {
+      height: 200px;
+      padding-left: 0;
+  }
+  .statue-1 {
+      margin-left: 1px;
+  }
+}
 
 /* Initially hidden sections */
 #backgroundBGroup,
