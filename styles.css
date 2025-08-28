@@ -208,21 +208,88 @@ html, body {
   text-decoration: underline;
 }
 
-/* Sponsor form */
-.sponsor-btn {
-  margin-top: 1rem;
-  padding: 10px 20px;
-  font-size: 1.5rem;
+.sponsors-section {
+  text-align: center;
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sponsors-title {
+  font-size: 2.5rem;
   font-family: 'Cinzel', system-ui, sans-serif;
-  background: #9c8122;
-  color: #000;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+/* Tier Styling */
+.sponsor-tier {
+  margin-bottom: 50px;
+}
+
+.tier-title {
+  font-size: 1.8rem;
+  font-family: 'Cinzel', system-ui, sans-serif;
+  margin-bottom: 20px;
+  color: #444;
+  border-bottom: 2px solid #ddd;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.sponsor-logos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.sponsor-logos img {
+  max-height: 100px;
+  max-width: 180px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.sponsor-logos img:hover {
+  transform: scale(1.1);
+}
+
+/* Contact Section */
+.sponsor-contact {
+  margin-top: 60px;
+  font-size: 1.1rem;
+  font-family: 'Cinzel', system-ui, sans-serif;
+}
+
+.sponsor-link {
+  display: inline-block;
+  margin: 15px 0;
+  text-decoration: none;
+  font-family: 'Cinzel', system-ui, sans-serif;
+  color: #0056b3;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.sponsor-link:hover {
+  color: #003d80;
+}
+
+.sponsor-btn {
+  font-family: 'Cinzel', system-ui, sans-serif;
+  background-color: #f6c90e;
   border: none;
+  padding: 10px 20px;
   cursor: pointer;
-  border-radius: 5px;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
 }
 
 .sponsor-btn:hover {
-  background: #ccc;
+  background-color: #e0b90d;
 }
 
 /* SOCIAL ICONS */
@@ -392,20 +459,6 @@ html, body {
   }
 }
 
-@media (max-width: 393px){
-  .statue-container {
-      bottom: 320px;
-      flex-direction: row;
-      flex-wrap: wrap;
-  }
-  .statue-1, .statue-2, .statue-3, .statue-4 {
-      height: 200px;
-      padding-left: 0;
-  }
-  .statue-1 {
-      margin-left: 1px;
-  }
-}
 
 /* Initially hidden sections */
 #backgroundBGroup,
@@ -479,4 +532,3 @@ html, body {
   transform: scale(1.05);
   background-color: #bfa457;
 }
-
