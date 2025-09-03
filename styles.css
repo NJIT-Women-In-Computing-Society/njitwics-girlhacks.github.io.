@@ -156,7 +156,6 @@ html, body {
   left: 0;
   width: 100%;            
   display: flex;
-  justify-content: space-around; 
   align-items: flex-end;
   z-index: 2;         
 }
@@ -172,10 +171,14 @@ html, body {
 }
 
 .statue-1 {
-  margin-left: 25px;
+  padding: 10px;
 }
 
-.statue-2 {
+.statue-3 {
+  padding-left: 10px;
+}
+
+.statue-4 {
   padding-left: 10px;
 }
 
@@ -240,6 +243,7 @@ html, body {
 .sponsor-logos {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   gap: 30px;
   margin-top: 20px;
@@ -351,11 +355,7 @@ html, body {
   }
 
   .statue-1 {
-    padding-left: 0.001rem;
-  }
-
-  .statue-2 {
-    padding-left: 10px;
+    padding-right: 1px;
   }
 
 
@@ -367,7 +367,7 @@ html, body {
 }
 
   .statue-container {
-    bottom: 300px;
+    bottom: 210px;
     flex-wrap: wrap;
   }
 
