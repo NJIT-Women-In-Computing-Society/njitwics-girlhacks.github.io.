@@ -151,38 +151,29 @@ html, body {
 
 /* Statue container */
 .statue-container {
-  position: absolute;
-  bottom: 5px;           
+  position: fixed;
+  bottom: 0;           
   left: 0;
   width: 100%;            
   display: flex;
+  justify-content: space-around; /* even spacing */
   align-items: flex-end;
   z-index: 2;         
+  padding-bottom: 7vh;
+  overflow-x: auto;
 }
 
-.statue-1,
-.statue-2,
-.statue-3,
-.statue-4 {
-  height: 100vh;
+.statue-container img {
+  max-height: 80%;   /* scale relative to container */
+  max-width: 20%;    /* prevent any one statue from dominating */
+  height: auto;
   width: auto;
-  opacity: 0.85;
+  object-fit: contain;
+  opacity: 0.9;
   transition: transform 0.3s ease;
 }
 
-.statue-1 {
-  padding: 10px;
-}
-
-.statue-3 {
-  padding-left: 10px;
-}
-
-.statue-4 {
-  padding-left: 10px;
-}
-
-.statue-1:hover, .statue-2:hover, .statue-3:hover, .statue-4:hover {
+.statue-container img:hover {
   transform: scale(1.05);
 }
 
@@ -347,28 +338,10 @@ html, body {
     padding: 60px 5vw;
   }
 
-  .statue-1,
-  .statue-2,
-  .statue-3,
-  .statue-4 {
-    height: 400px;
-  }
-
-  .statue-1 {
-    padding-right: 1px;
-  }
-
-
-  .statue-1:hover,
-  .statue-2:hover,
-  .statue-3:hover,
-  .statue-4:hover {
-  transform: scale(1.05);
-}
-
   .statue-container {
-    bottom: 210px;
+    flex-direction: row;
     flex-wrap: wrap;
+    padding-bottom: 25vh;
   }
 
   .social-icons a img {
@@ -435,17 +408,9 @@ html, body {
   }
 
   .statue-container {
-    bottom: 300px;
     flex-direction: row;
     flex-wrap: wrap;
-  }
-
-  .statue-1,
-  .statue-2,
-  .statue-3,
-  .statue-4 {
-    height: 150px;
-    padding-left: 0;
+    padding-bottom: 37vh;
   }
 
   .social-icons {
