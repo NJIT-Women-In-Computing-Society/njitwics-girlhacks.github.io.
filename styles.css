@@ -125,7 +125,7 @@ html, body {
 
 .start-page h1 {
   font-size: 3rem;
-  color: #9c8122;
+  color: #C2950A;
   margin: 0.5rem 0;
   background-color: #183030;
   border-radius: 8px;
@@ -134,7 +134,7 @@ html, body {
 
 .start-page h3 {
   font-size: 1.5rem;
-  color: #9c8122;
+  color: #C2950A;
   margin: 0.5rem 0;
   background-color: #183030;
   border-radius: 8px;
@@ -180,13 +180,13 @@ html, body {
 /* Content section text */
 .page h1 {
   font-size: 3rem;
-  color: #9c8122;
+  color: #C2950A;
   margin-bottom: 1rem;
 }
 
 .page h3 {
   font-size: 2rem;
-  color: #9c8122;
+  color: #C2950A;
   margin-top: 1.5rem;
 }
 
@@ -274,7 +274,7 @@ html, body {
 
 .sponsor-btn {
   font-family: 'Cinzel', system-ui, sans-serif;
-  background-color: #f6c90e;
+  background-color: #C2950A;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
@@ -284,7 +284,7 @@ html, body {
 }
 
 .sponsor-btn:hover {
-  background-color: #e0b90d;
+  background-color: #e3b323;
 }
 
 .agenda-images {
@@ -455,7 +455,7 @@ html, body {
   padding: 14px 28px;
   font-size: 1.2rem;
   font-family: 'Cinzel', serif;
-  background-color: #9c8122;
+  background-color: #C2950A;
   color: #000;
   border: none;
   border-radius: 10px;
@@ -465,7 +465,7 @@ html, body {
 
 .enter-btn:hover {
   transform: scale(1.05);
-  background-color: #bfa457;
+  background-color: #e3b323;
 }
 
 
@@ -479,7 +479,7 @@ html, body {
   padding: 30px 25px;
   font-size: 2.5rem;
   font-family: 'Cinzel', serif;
-  background-color: #9c8122;
+  background-color: #C2950A;
   color: #000;
   border: none;
   border-radius: 8px;
@@ -489,14 +489,14 @@ html, body {
 
 .register-btn:hover {
   transform: scale(1.05);
-  background-color: #bfa457;
+  background-color: #e3b323;
 }
 
 .sticky-register {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #9c8122; /* GirlHacks golden yellow */
+  background-color: #C2950A; /* GirlHacks golden yellow */
   color: black;
   padding: 20px 18px;
   font-size: 16px;
@@ -511,5 +511,5 @@ html, body {
 
 .sticky-register:hover {
   transform: scale(1.05);
-  background-color: #bfa457;
+  background-color: #e3b323;
 }
