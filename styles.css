@@ -287,6 +287,22 @@ html, body {
   background-color: #e0b90d;
 }
 
+.agenda-images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* space between images */
+  margin-top: 20px;
+}
+
+.agenda-img {
+  max-width: 90%;  /* keeps images responsive */
+  height: auto;
+  border-radius: 10px; /* optional: soft rounded corners */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* optional: subtle shadow */
+}
+
+
 /* SOCIAL ICONS */
 .social-icons {
   padding-top: 40px;
