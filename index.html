@@ -81,6 +81,49 @@
       filter: drop-shadow(0 0 10px #9ddcff);
     }
 
+    /* COUNTDOWN */
+    .countdown {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .countdown h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-shadow:
+        0 0 10px rgba(173,216,230,0.7),
+        0 0 20px rgba(173,216,230,0.5);
+    }
+
+    .countdown-timer {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .time-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .time-unit span {
+      font-family: 'Cinzel', serif;
+      font-size: 3rem;
+      font-weight: bold;
+      color: #fae6ff;
+      text-shadow:
+        0 0 10px rgba(250,230,255,0.7),
+        0 0 20px rgba(250,230,255,0.5);
+    }
+
+    .time-unit p {
+      font-size: 1rem;
+      margin-top: 5px;
+      color: #ba79d6;
+    }
+
     /* FLOATING PARTICLES */
     .particle {
       position: absolute;
@@ -148,13 +191,34 @@
       <h1>GIRLHACKS 2026</h1>
       <p class="subtitle">OCTOBER 3RD–4TH 2026</p>
 
+      <div id="countdown" class="subtitle">
+        <h2>Countdown to GirlHacks 2026</h2>
+        <div class="countdown-timer">
+          <div class="time-unit">
+            <span id="days">00</span>
+            <p>Days</p>
+          </div>
+          <div class="time-unit">
+            <span id="hours">00</span>
+            <p>Hours</p>
+          </div>
+          <div class="time-unit">
+            <span id="minutes">00</span>
+            <p>Minutes</p>
+          </div>
+          <div class="time-unit">
+            <span id="seconds">00</span>
+            <p>Seconds</p>
+          </div>
+        </div>
+      </div>
+
       <div class="social-icons">
         <a href="mailto:wicsnjit@gmail.com"><img src="assets/icons8-email-48.png" /></a>
         <a href="https://www.linkedin.com/company/wicsnjit/posts/?feedView=all"><img src="assets/icons8-linkedin-48.png" /></a>
         <a href="https://discord.com/invite/ZSuqcQaNG6"><img src="assets/icons8-discord-48.png" /></a>
         <a href="https://www.instagram.com/wicsnjit/?hl=en"><img src="assets/icons8-instagram-48.png" /></a>
       </div>
-    </div>
 
   </section>
 
@@ -189,6 +253,38 @@
 
       setTimeout(() => trail.remove(), 800);
     });
+
+    // COUNTDOWN
+    const targetDate = new Date(2026, 9, 3); // October 3, 2026 (months are 0-based)
+
+    function updateCountdown() {
+      const now = new Date();
+      const timeDifference = targetDate - now;
+
+      if (timeDifference > 0) {
+        const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+        document.getElementById('days').textContent = days.toString().padStart(2, '0');
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+      } else {
+        // If the date has passed, show 00:00:00:00
+        document.getElementById('days').textContent = '00';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+      }
+    }
+
+    // Update countdown every second
+    setInterval(updateCountdown, 1000);
+
+    // Initial call
+    updateCountdown();
   </script>
 
 </body>
