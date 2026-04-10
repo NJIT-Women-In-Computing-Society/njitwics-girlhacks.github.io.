@@ -50,7 +50,7 @@
       font-family: 'Cinzel', serif;
       font-size: 4rem;
       letter-spacing: 3px;
-      margin-bottom: 20px;
+      margin-bottom: -20px;
       text-shadow:
         0 0 10px rgba(173,216,230,0.7),
         0 0 20px rgba(173,216,230,0.5);
@@ -59,7 +59,9 @@
     .subtitle {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.5rem;
-      margin-bottom: 30px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      color: rgba(173,216,230,0.7);
     }
 
     /* SOCIAL ICONS */
@@ -79,6 +81,50 @@
     .social-icons a:hover img {
       transform: scale(1.2);
       filter: drop-shadow(0 0 10px #9ddcff);
+    }
+
+    /* COUNTDOWN */
+    .countdown {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .countdown h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.25rem;
+      margin-bottom: 10px;
+      color: rgba(173,216,230,0.7);
+    }
+
+    .countdown-timer {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .time-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .time-unit span {
+      font-family: 'Cinzel', serif;
+      font-size: 2.75rem;
+      font-weight: bold;
+      color: #fae6ff;
+      padding: 5px 10px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.4);
+      text-shadow:
+        0 0 10px rgba(250,230,255,0.7),
+        0 0 20px rgba(250,230,255,0.8);
+    }
+
+    .time-unit p {
+      font-size: 1rem;
+      margin-top: 5px;
+      color: #ba79d6;
     }
 
     /* FLOATING PARTICLES */
@@ -132,6 +178,39 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* GLOWING BUTTON */
+    .glow-button {
+      display: inline-block;
+      padding: 15px 35px;
+      font-size: 1.2rem;
+      font-family: 'Cinzel', serif;
+      font-weight: 500;
+      color: #fff;
+      text-decoration: none;
+      background: linear-gradient(90deg, #ba79d6, rgba(173,216,230,0.7));
+      border: none;
+      border-radius: 50px;
+      box-shadow: 0 0 20px rgba(186, 121, 214, 0.5);
+      transition: all 0.3s ease;
+      margin-top: 5px;
+      margin-bottom: 20px;
+      animation: glowPulse 2s ease-in-out infinite alternate;
+    }
+
+    .glow-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(186, 121, 214, 0.8), 0 0 40px rgba(157, 220, 255, 0.6);
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+
+    @keyframes glowPulse {
+      from {
+        box-shadow: 0 0 20px rgba(186, 121, 214, 0.5);
+      }
+      to {
+        box-shadow: 0 0 30px rgba(186, 121, 214, 0.7), 0 0 40px rgba(157, 220, 255, 0.4);
+      }
+    }
   </style>
 </head>
 
@@ -146,7 +225,31 @@
 
     <div class="hero-content">
       <h1>GIRLHACKS 2026</h1>
+
+      <div id="countdown" class="countdown">
+        <h2>Countdown to GirlHacks 2026</h2>
+        <div class="countdown-timer">
+          <div class="time-unit">
+            <span id="days">00</span>
+            <p>Days</p>
+          </div>
+          <div class="time-unit">
+            <span id="hours">00</span>
+            <p>Hours</p>
+          </div>
+          <div class="time-unit">
+            <span id="minutes">00</span>
+            <p>Minutes</p>
+          </div>
+          <div class="time-unit">
+            <span id="seconds">00</span>
+            <p>Seconds</p>
+          </div>
+        </div>
+      </div>
       <p class="subtitle">OCTOBER 3RD–4TH 2026</p>
+
+      <a href="https://forms.gle/eEKXv5w7SminLwQH9" class="glow-button" target="_blank">Stay Updated</a>
 
       <div class="social-icons">
         <a href="mailto:wicsnjit@gmail.com"><img src="assets/icons8-email-48.png" /></a>
@@ -154,7 +257,6 @@
         <a href="https://discord.com/invite/ZSuqcQaNG6"><img src="assets/icons8-discord-48.png" /></a>
         <a href="https://www.instagram.com/wicsnjit/?hl=en"><img src="assets/icons8-instagram-48.png" /></a>
       </div>
-    </div>
 
   </section>
 
@@ -189,6 +291,38 @@
 
       setTimeout(() => trail.remove(), 800);
     });
+
+    // COUNTDOWN
+    const targetDate = new Date(2026, 9, 3); // October 3, 2026 (months are 0-based)
+
+    function updateCountdown() {
+      const now = new Date();
+      const timeDifference = targetDate - now;
+
+      if (timeDifference > 0) {
+        const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+        document.getElementById('days').textContent = days.toString().padStart(2, '0');
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+      } else {
+        // If the date has passed, show 00:00:00:00
+        document.getElementById('days').textContent = '00';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+      }
+    }
+
+    // Update countdown every second
+    setInterval(updateCountdown, 1000);
+
+    // Initial call
+    updateCountdown();
   </script>
 
 </body>
