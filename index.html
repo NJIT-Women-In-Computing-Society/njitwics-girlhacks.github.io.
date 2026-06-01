@@ -3,33 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#000000"/>
   <title>NJIT GIRLHACKS</title>
+
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
 
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      scroll-behavior: smooth;
     }
+
+
+    html.lenis {
+      height: auto;
+    }
+
+
+    .lenis-smooth {
+      scroll-behavior: auto !important;
+    }
+
+
+    html {
+      background-color: #000;
+    }
+
 
     body {
       font-family: 'Poppins', sans-serif;
       color: #f5f5f5;
       overflow-x: hidden;
-      background: #000;
-      cursor: none; 
+      background-color: #000;
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.406), rgba(0, 0, 0, 0.85)),
+        url('assets/landingBackground.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      background-attachment: fixed;
+      cursor: none;
     }
+
 
     /* HERO */
     .hero {
       height: 100vh;
-      background:
-        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)),
-        url(assets/landingBackground.png) no-repeat center center/cover;
+      background: transparent;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -38,6 +62,7 @@
       overflow: hidden;
     }
 
+
     /* CONTENT */
     .hero-content {
       max-width: 800px;
@@ -45,6 +70,7 @@
       animation: fadeUp 1.5s ease;
       z-index: 2;
     }
+
 
     h1 {
       font-family: 'Cinzel', serif;
@@ -56,6 +82,7 @@
         0 0 20px rgba(173,216,230,0.5);
     }
 
+
     .subtitle {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.5rem;
@@ -63,6 +90,7 @@
       margin-bottom: 20px;
       color: rgba(173,216,230,0.7);
     }
+
 
     /* SOCIAL ICONS */
     .social-icons {
@@ -72,22 +100,48 @@
       margin-top: 10px;
     }
 
+
     .social-icons img {
       width: 38px;
       filter: brightness(0) invert(1);
       transition: all 0.3s ease;
     }
 
+
     .social-icons a:hover img {
       transform: scale(1.2);
       filter: drop-shadow(0 0 10px #9ddcff);
     }
+
+
+    .email-icon-link {
+      display: inline-flex;
+      vertical-align: middle;
+      text-decoration: none;
+      margin-left: 4px;
+    }
+
+
+    .email-icon-link img {
+      width: 24px;
+      height: 24px;
+      filter: brightness(0) invert(1);
+      transition: all 0.3s ease;
+    }
+
+
+    .email-icon-link:hover img {
+      transform: scale(1.15);
+      filter: drop-shadow(0 0 8px #9ddcff);
+    }
+
 
     /* COUNTDOWN */
     .countdown {
       margin-top: 20px;
       text-align: center;
     }
+
 
     .countdown h2 {
       font-family: 'Cormorant Garamond', serif;
@@ -96,17 +150,20 @@
       color: rgba(173,216,230,0.7);
     }
 
+
     .countdown-timer {
       display: flex;
       justify-content: center;
       gap: 20px;
     }
 
+
     .time-unit {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
+
 
     .time-unit span {
       font-family: 'Cinzel', serif;
@@ -121,11 +178,13 @@
         0 0 20px rgba(250,230,255,0.8);
     }
 
+
     .time-unit p {
       font-size: 1rem;
       margin-top: 5px;
       color: #ba79d6;
     }
+
 
     /* FLOATING PARTICLES */
     .particle {
@@ -137,11 +196,13 @@
       animation: floatParticle linear infinite;
     }
 
+
     @keyframes floatParticle {
       0% { transform: translateY(0); opacity: 0; }
       50% { opacity: 1; }
       100% { transform: translateY(-80px); opacity: 0; }
     }
+
 
     /* CURSOR GLOW */
     .cursor {
@@ -152,8 +213,9 @@
       pointer-events: none;
       background: radial-gradient(circle, #fae6ff, #ba79d6, transparent);
       transform: translate(-50%, -50%);
-      z-index: 999;
+      z-index: 1001;
     }
+
 
     .trail {
       position: fixed;
@@ -162,8 +224,10 @@
       border-radius: 50%;
       background: #ba79d6;
       pointer-events: none;
+      z-index: 1000;
       animation: fadeTrail 1s linear forwards;
     }
+
 
     @keyframes fadeTrail {
       to {
@@ -172,11 +236,13 @@
       }
     }
 
+
     /* ANIMATIONS */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(40px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
 
     /* GLOWING BUTTON */
     .glow-button {
@@ -197,11 +263,13 @@
       animation: glowPulse 2s ease-in-out infinite alternate;
     }
 
+
     .glow-button:hover {
       transform: scale(1.05);
       box-shadow: 0 0 30px rgba(186, 121, 214, 0.8), 0 0 40px rgba(157, 220, 255, 0.6);
       text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
     }
+
 
     @keyframes glowPulse {
       from {
@@ -211,20 +279,519 @@
         box-shadow: 0 0 30px rgba(186, 121, 214, 0.7), 0 0 40px rgba(157, 220, 255, 0.4);
       }
     }
+
+
+    /* NAVIGATION BAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      cursor: none;
+      background: rgba(4, 13, 6, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(186, 121, 214, 0.15);
+      box-sizing: border-box;
+      min-height: var(--nav-height);
+    }
+
+
+    .nav-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #fff;
+      text-decoration: none;
+      cursor: none;
+      text-shadow: 0 0 10px rgba(186, 121, 214, 0.5);
+    }
+
+
+    #mlh-trust-badge {
+      position: fixed;
+      top: calc(var(--nav-height) + 10px);
+      right: 40px;
+      display: block;
+      max-width: 100px;
+      min-width: 60px;
+      width: 80px;
+      z-index: 999;
+      line-height: 0;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+    }
+
+
+    #mlh-trust-badge.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+
+    #mlh-trust-badge img {
+      width: 100%;
+      display: block;
+    }
+
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+
+    .nav-links a {
+      font-size: 0.95rem;
+      color: rgba(245, 245, 245, 0.8);
+      text-decoration: none;
+      cursor: none;
+      transition: all 0.3s ease;
+      letter-spacing: 1px;
+    }
+
+
+    .nav-links a:hover {
+      color: #ba79d6;
+      text-shadow: 0 0 8px rgba(186, 121, 214, 0.6);
+    }
+
+
+    /* GENERAL SECTIONS STYLING */
+    .section-container {
+      padding: 100px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 2.8rem;
+      text-align: center;
+      margin-bottom: 50px;
+      letter-spacing: 2px;
+      color: #fff;
+      position: relative;
+      width: fit-content;
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      text-shadow:
+        0 0 10px rgba(186, 121, 214, 0.8),
+        0 0 20px rgba(157, 220, 255, 0.5);
+    }
+
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -14px;
+      transform: translateX(-50%) scaleX(0.4);
+      width: 100%;
+      height: 10px;
+      border-radius: 50%;
+      background: radial-gradient(
+        ellipse at center,
+        #fae6ff 0%,
+        #ba79d6 45%,
+        transparent 75%
+      );
+      opacity: 0;
+      pointer-events: none;
+    }
+
+
+    .section-title.title-glow-active::after {
+      animation: section-title-glow 2.4s ease-out forwards;
+    }
+
+
+    @keyframes section-title-glow {
+      0% {
+        opacity: 0;
+        transform: translateX(-50%) scaleX(0.3);
+        filter: blur(0);
+      }
+      18% {
+        opacity: 1;
+        transform: translateX(-50%) scaleX(1.15);
+        filter: blur(1px);
+      }
+      68% {
+        opacity: 0.8;
+        transform: translateX(-50%) scaleX(1.05);
+        filter: blur(1px);
+      }
+      100% {
+        opacity: 0;
+        transform: translateX(-50%) scaleX(0.85);
+        filter: blur(3px);
+      }
+    }
+
+
+    /* ABOUT SECTION */
+    #about {
+      background: rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+    .about-content { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
+    .about-text { flex: 1; min-width: 300px; font-size: 1.1rem; line-height: 1.8; color: rgba(245, 245, 245, 0.9); }
+    .about-text p { margin-bottom: 20px; }
+    .about-graphic {
+      flex: 1;
+      min-width: 280px;
+      max-width: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid rgba(186, 121, 214, 0.35);
+      box-shadow: 0 0 30px rgba(186, 121, 214, 0.25);
+    }
+
+    .about-graphic img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+
+
+    /* TRACKS SECTION */
+    #tracks {
+      background: rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+
+    .tracks-carousel {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      overflow: hidden;
+      padding: 10px 0 30px;
+      mask-image: linear-gradient(
+        to right,
+        transparent,
+        #000 8%,
+        #000 92%,
+        transparent
+      );
+      -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        #000 8%,
+        #000 92%,
+        transparent
+      );
+    }
+
+
+    .tracks-carousel-track {
+      display: flex;
+      gap: 30px;
+      width: max-content;
+      animation: tracks-scroll 28s linear infinite;
+      will-change: transform;
+    }
+
+
+    .tracks-carousel:hover .tracks-carousel-track {
+      animation-play-state: paused;
+    }
+
+
+    @keyframes tracks-scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+
+    .tracks-carousel .track-card {
+      flex: 0 0 300px;
+      min-width: 300px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(157, 220, 255, 0.1);
+      border-radius: 16px;
+      padding: 30px;
+      text-align: center;
+      transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+    }
+
+
+    .tracks-carousel .track-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: rgba(186, 121, 214, 0.4);
+      box-shadow: 0 10px 30px rgba(186, 121, 214, 0.15);
+    }
+
+
+    .track-icon { font-size: 2.5rem; margin-bottom: 15px; display: inline-block; }
+    .track-card h3 { font-family: 'Cinzel', serif; font-size: 1.4rem; margin-bottom: 15px; color: #9ddcff; }
+    .track-card p { font-size: 0.95rem; color: rgba(245, 245, 245, 0.75); line-height: 1.6; }
+
+
+    @media (prefers-reduced-motion: reduce) {
+      .tracks-carousel-track {
+        animation: none;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 40px;
+      }
+
+
+      .tracks-carousel {
+        mask-image: none;
+        -webkit-mask-image: none;
+        width: 100%;
+        margin-left: 0;
+      }
+
+
+      .tracks-carousel .track-card[aria-hidden="true"] {
+        display: none;
+      }
+    }
+
+
+    /* SPONSORS SECTION */
+    #sponsors {
+      background: rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+    .sponsor-message {
+      max-width: 720px;
+      margin: 0 auto 50px;
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: rgba(245, 245, 245, 0.9);
+    }
+    .sponsor-message a {
+      color: #ba79d6;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+    .sponsor-message a:hover {
+      color: #9ddcff;
+    }
+    .sponsor-logos {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+
+    .sponsor-logo-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 200px;
+      min-height: 120px;
+      padding: 28px 36px;
+      background: transparent;
+      border: none;
+      border-radius: 16px;
+      transition: transform 0.35s ease;
+    }
+
+
+    .sponsor-logo-card:hover {
+      transform: translateY(-6px);
+    }
+
+
+    .sponsor-logo-card img {
+      max-width: 180px;
+      max-height: 72px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+
+    .sponsor-coming-soon {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px dashed rgba(186, 121, 214, 0.35);
+      box-shadow: none;
+    }
+
+
+    .sponsor-coming-soon:hover {
+      transform: none;
+      box-shadow: none;
+    }
+
+
+    .sponsor-coming-soon span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      color: rgba(186, 121, 214, 0.85);
+      text-align: center;
+      line-height: 1.5;
+      max-width: 140px;
+    }
+
+
+    /* FAQS SECTION */
+    #faqs {
+      background: rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+    .faq-wrapper { max-width: 800px; margin: 0 auto; }
+    .faq-item { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(186, 121, 214, 0.1); border-radius: 12px; margin-bottom: 20px; overflow: hidden; }
+    .faq-question { padding: 22px 30px; font-weight: 500; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .faq-question::after { content: '✦'; color: #ba79d6; transition: transform 0.3s ease; }
+    .faq-item.active { border-color: rgba(186, 121, 214, 0.4); background: rgba(255, 255, 255, 0.04); }
+    .faq-item.active .faq-question::after { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; color: rgba(245, 245, 245, 0.75); }
+    .faq-answer p { padding: 0 30px 25px 30px; line-height: 1.7; }
+    .faq-answer a { color: #ba79d6; text-decoration: underline; transition: color 0.3s ease; }
+    .faq-answer a:hover { color: #9ddcff; }
+
+
+    /* FLOWER (bottom-right corner) */
+    .flower-corner {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 125px;
+      z-index: 1999;
+      pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.8);
+      transition: opacity 0.55s ease, visibility 0.55s ease, transform 0.55s ease;
+    }
+
+
+    .flower-corner.is-visible {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+    }
+
+
+    .flower-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 0 12px rgba(186, 121, 214, 0.5));
+    }
+
+
+    :root {
+      --nav-height: 4.5rem;
+    }
+
+
+    .page-main {
+      position: relative;
+      width: 100%;
+    }
+
+
+    /* BUTTERFLY STYLES */
+.butterfly-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80px; /* Adjusted for detail */
+  height: auto;
+  z-index: 2000;
+  pointer-events: none;
+  filter: drop-shadow(0 0 12px rgba(186, 121, 214, 0.6));
+  will-change: transform;
+}
+
+
+.butterfly-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* This creates a gentle 'fluttering' wing effect */
+  animation: butterfly-flutter 0.24s infinite alternate ease-in-out;
+  transform-origin: center;
+}
+
+
+@keyframes butterfly-flutter {
+  from {
+    transform: scaleX(1) rotate(5deg);
+  }
+  to {
+    transform: scaleX(0.6) rotate(-5deg);
+  }
+}
   </style>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 </head>
 
+
 <body>
+  <nav class="navbar">
+    <a href="#" class="nav-logo">GIRLHACKS</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#tracks">Tracks</a></li>
+      <li><a href="#sponsors">Sponsors</a></li>
+      <li><a href="#faqs">FAQs</a></li>
+    </ul>
+  </nav>
+
+
+  <div class="butterfly-container" id="butterfly">
+    <img src="assets/butterfly.png" alt="Purple Butterfly" class="butterfly-img">
+  </div>
+
+
+  <div class="flower-corner" id="flower-footer">
+    <img src="assets/flower_no_background.png" alt="Golden mystical flower" class="flower-img" id="page-flower">
+  </div>
+
+
+  <a id="mlh-trust-badge" href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2026-season&utm_content=black" target="_blank" rel="noopener noreferrer">
+    <img src="https://logged-assets.s3.amazonaws.com/trust-badge/2027/mlh-trust-badge-2027-black.svg" alt="Major League Hacking 2026 Hackathon Season">
+  </a>
+
 
   <div class="cursor" id="cursor"></div>
 
+
+  <main class="page-main">
   <section class="hero">
+
 
     <!-- PARTICLES -->
     <div id="particles"></div>
 
+
     <div class="hero-content">
       <h1>GIRLHACKS 2026</h1>
+
 
       <div id="countdown" class="countdown">
         <h2>Countdown to GirlHacks 2026</h2>
@@ -249,20 +816,158 @@
       </div>
       <p class="subtitle">OCTOBER 3RD–4TH 2026</p>
 
-      <a href="https://forms.gle/eEKXv5w7SminLwQH9" class="glow-button" target="_blank">Stay Updated</a>
+
+      <a href="https://forms.gle/FUNx8dELwSFvPktA6" class="glow-button" target="_blank">Register Now!</a>
+
 
       <div class="social-icons">
-        <a href="mailto:wicsnjit@gmail.com"><img src="assets/icons8-email-48.png" /></a>
+        <a href="mailto:wicsnjit@gmail.com"><img src="assets/icons8-email-48.png" alt="Email" /></a>
         <a href="https://www.linkedin.com/company/wicsnjit/posts/?feedView=all"><img src="assets/icons8-linkedin-48.png" /></a>
         <a href="https://discord.com/invite/ZSuqcQaNG6"><img src="assets/icons8-discord-48.png" /></a>
         <a href="https://www.instagram.com/wicsnjit/?hl=en"><img src="assets/icons8-instagram-48.png" /></a>
       </div>
 
+
+      </div>
+
+
   </section>
+
+
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <div class="section-container">
+      <h2 class="section-title">The Enchanted Story</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Welcome to the Enchanted Grove of GirlHacks, NJIT's premier 24-hour MLH-sanctioned hackathon. Here, we believe that when logic meets magic, innovation truly begins to bloom.
+          Step into a digital forest designed to empower women and non-binary tech innovators to join our quest. </p>
+          <p>Whether you are a seasoned sorcerer of code or a curious apprentice, you'll be supported by ancient guardians, our industry mentors, offering workshops and tech talks to guide your path. Our mission is to foster an inclusive sanctuary where diverse students can collaborate, learn, and showcase their craft, regardless of their background or institution.</p>
+          <p>The forest is waiting. What will you create?</p>
+        </div>
+        <div class="about-graphic">
+          <img src="assets/about.jpg" alt="The Enchanted Grove of GirlHacks" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- TRACKS SECTION -->
+  <section id="tracks">
+    <div class="section-container">
+      <h2 class="section-title">Mystical Exploration Tracks</h2>
+    </div>
+    <div class="tracks-carousel">
+      <div class="tracks-carousel-track">
+        <div class="track-card">
+          <span class="track-icon">🌿</span>
+          <h3>Coming Soon</h3>
+        </div>
+        <div class="track-card">
+          <span class="track-icon">✨</span>
+          <h3>Coming Soon</h3>
+        </div>
+        <div class="track-card">
+          <span class="track-icon">🔮</span>
+          <h3>Coming Soon</h3>
+        </div>
+        <div class="track-card">
+          <span class="track-icon">🦋</span>
+          <h3>Coming Soon</h3>
+        </div>
+        <div class="track-card" aria-hidden="true">
+          <span class="track-icon">🌿</span>
+          <h3>Coming Soon</h3>
+        </div>
+        <div class="track-card" aria-hidden="true">
+          <span class="track-icon">✨</span>
+          <h3>Coming Soon</h3>
+        </div>
+        <div class="track-card" aria-hidden="true">
+          <span class="track-icon">🔮</span>
+          <h3>Coming Soon</h3>
+        </div>
+        <div class="track-card" aria-hidden="true">
+          <span class="track-icon">🦋</span>
+          <h3>Coming Soon</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SPONSORS SECTION -->
+  <section id="sponsors">
+    <div class="section-container">
+      <h2 class="section-title">The Grand Patrons</h2>
+      <p class="sponsor-message">
+        Will you help our forest thrive? Secure your spot to ensure your brand is part of our quest.
+        Please reach out to our team if you are interested or have any questions!
+        Contact us here! <a href="mailto:wicsnjit@gmail.com" class="email-icon-link"><img src="assets/icons8-email-48.png" alt="Email" /></a>
+      </p>
+      <div class="sponsor-logos">
+        <div class="sponsor-logo-card">
+          <img src="assets/Avanade%20Color%20Logo%20RGB.png" alt="Avanade" />
+        </div>
+        <div class="sponsor-logo-card sponsor-coming-soon">
+          <span>More sponsors coming soon</span>
+        </div>
+        <div class="sponsor-logo-card sponsor-coming-soon">
+          <span>More sponsors coming soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FAQS SECTION -->
+  <section id="faqs">
+    <div class="section-container">
+      <h2 class="section-title">FAQs</h2>
+      <div class="faq-wrapper">
+        <div class="faq-item">
+          <div class="faq-question">Can I attend?</div>
+          <div class="faq-answer"><p>All genders and identities are welcome to attend the hackathon! It is an all-inclusive hackathon with a primary focus on supporting women and non-binary hackers!</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What if I can't code?</div>
+          <div class="faq-answer"><p>Welcome to the first-time club! GirlHacks's primary goal is to be a first-time friendly hackathon for students of all ages! We got you covered with our workshops and mentors who will be there throughout the entire event.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What is the format of the event?</div>
+          <div class="faq-answer"><p>The event will be held in person. We have so much planned for everyone, including virtual activities! We can't wait to see you there!</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Does it cost money to attend?</div>
+          <div class="faq-answer"><p>The event is free for all of our hackers.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Can I use an old project?</div>
+          <div class="faq-answer"><p>Why don't we build something new? The whole fun of this hackathon is building something new from scratch with a team or alone. We also have a team building session, so don't panic if you don't have a team before coming!</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What should I bring?</div>
+          <div class="faq-answer"><p>Attendees should bring a form of identification, and whatever you need to hack. This includes your laptop, your charger, and any hardware you'll need for your project.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Do you offer parking?</div>
+          <div class="faq-answer"><p>Yes, free overnight parking will be available to hackers at the NJIT parking deck located at 42 Wilsey St, Newark NJ.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Rules + Code of Conduct</div>
+          <div class="faq-answer"><p>We will be abiding by the <a href="https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md?ajs_uid=018c1e10-a61b-c79a-52b8-049749754068&utm_campaign=Member+Event+-+Onboarding+Reminder&utm_content=Onboarding+Season+Launch&utm_medium=Email&utm_source=Customer.io" target="_blank" rel="noopener noreferrer">MLH Code of Conduct</a>. If you have any more questions that we have not answered please feel free to email us here! <a href="mailto:wicsnjit@gmail.com" class="email-icon-link"><img src="assets/icons8-email-48.png" alt="Email" /></a></p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+
 
   <script>
     // PARTICLES
     const container = document.getElementById("particles");
+
 
     function createParticle() {
       const p = document.createElement("div");
@@ -274,14 +979,18 @@
       setTimeout(() => p.remove(), 6000);
     }
 
+
     setInterval(createParticle, 300);
+
 
     // CURSOR
     const cursor = document.getElementById("cursor");
 
+
     document.addEventListener("mousemove", (e) => {
       cursor.style.left = e.clientX + "px";
       cursor.style.top = e.clientY + "px";
+
 
       const trail = document.createElement("div");
       trail.className = "trail";
@@ -289,21 +998,26 @@
       trail.style.top = e.clientY + "px";
       document.body.appendChild(trail);
 
+
       setTimeout(() => trail.remove(), 800);
     });
+
 
     // COUNTDOWN
     const targetDate = new Date(2026, 9, 3); // October 3, 2026 (months are 0-based)
 
+
     function updateCountdown() {
       const now = new Date();
       const timeDifference = targetDate - now;
+
 
       if (timeDifference > 0) {
         const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
         const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
 
         document.getElementById('days').textContent = days.toString().padStart(2, '0');
         document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
@@ -318,12 +1032,380 @@
       }
     }
 
+
     // Update countdown every second
     setInterval(updateCountdown, 1000);
 
+
     // Initial call
     updateCountdown();
+
+
+    // FAQ ACCORDION INTERACTION
+    const faqItems = document.querySelectorAll('.faq-item');
+   
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+     
+      question.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+       
+        // Collapse all other active boxes
+        faqItems.forEach(i => {
+          i.classList.remove('active');
+          i.querySelector('.faq-answer').style.maxHeight = null;
+        });
+       
+        // Toggle the target box open or closed
+        if (!isActive) {
+          item.classList.add('active');
+          answer.style.maxHeight = answer.scrollHeight + "px";
+        }
+        requestAnimationFrame(() => {
+          if (window.lenis) window.lenis.resize();
+          if (window.ScrollTrigger) ScrollTrigger.refresh();
+        });
+      });
+    });
   </script>
+
+
+  <script>
+    const lenis = window.lenis = new Lenis({
+      lerp: 0.06,
+      wheelMultiplier: 1.25,
+      touchMultiplier: 1.45,
+      smoothWheel: true,
+      smoothTouch: true,
+      syncTouch: true,
+      syncTouchLerp: 0.075,
+      touchInertiaMultiplier: 42,
+    });
+
+
+    let butterflyFlight = { t: 0 };
+    let placeButterflyFn = null;
+
+
+    function raf(time) {
+      lenis.raf(time);
+      if (placeButterflyFn) placeButterflyFn();
+      requestAnimationFrame(raf);
+    }
+
+
+    requestAnimationFrame(raf);
+
+
+    gsap.registerPlugin(ScrollTrigger);
+
+
+    lenis.on('scroll', ScrollTrigger.update);
+
+
+    ScrollTrigger.scrollerProxy(document.documentElement, {
+      scrollTop(value) {
+        if (arguments.length) {
+          lenis.scrollTo(value, { immediate: true });
+        }
+        return lenis.scroll;
+      },
+      getBoundingClientRect() {
+        return {
+          top: 0,
+          left: 0,
+          width: window.innerWidth,
+          height: window.innerHeight,
+        };
+      },
+    });
+
+
+    function initMlhBadge() {
+      const badge = document.getElementById('mlh-trust-badge');
+      const hero = document.querySelector('.hero');
+      if (!badge || !hero) return;
+
+
+      ScrollTrigger.create({
+        id: 'mlh-badge-hero',
+        trigger: hero,
+        scroller: document.documentElement,
+        start: 'bottom top',
+        onEnter: () => badge.classList.add('is-hidden'),
+        onLeaveBack: () => badge.classList.remove('is-hidden'),
+      });
+    }
+
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => ScrollTrigger.refresh(), 200);
+    });
+
+
+    function initFlowerReveal() {
+      const flower = document.getElementById('flower-footer');
+      if (!flower) return;
+
+
+      ScrollTrigger.getById('flower-reveal')?.kill();
+
+
+      ScrollTrigger.create({
+        id: 'flower-reveal',
+        trigger: document.body,
+        scroller: document.documentElement,
+        start: 'bottom bottom',
+        onEnter: () => flower.classList.add('is-visible'),
+        onLeaveBack: () => flower.classList.remove('is-visible'),
+      });
+    }
+
+
+    function initSectionTitleGlow() {
+      ScrollTrigger.getAll()
+        .filter((st) => st.vars.id && String(st.vars.id).startsWith('title-glow-'))
+        .forEach((st) => st.kill());
+
+
+      document.querySelectorAll('.section-title').forEach((title, index) => {
+        ScrollTrigger.create({
+          id: `title-glow-${index}`,
+          trigger: title,
+          scroller: document.documentElement,
+          start: 'top 78%',
+          onEnter: () => flashSectionTitleGlow(title),
+          onEnterBack: () => flashSectionTitleGlow(title),
+        });
+      });
+    }
+
+
+    function flashSectionTitleGlow(title) {
+      title.classList.remove('title-glow-active');
+      void title.offsetWidth;
+      title.classList.add('title-glow-active');
+    }
+
+
+    function initButterfly() {
+      const butterfly = document.getElementById('butterfly');
+      if (!butterfly) return;
+
+
+      ScrollTrigger.getById('butterfly-flight')?.kill();
+      gsap.killTweensOf(butterflyFlight);
+      gsap.killTweensOf(butterfly);
+      placeButterflyFn = null;
+      butterflyFlight.t = 0;
+
+
+      const stops = [
+        { selector: '.hero h1', side: 'left' },
+        { selector: '#about .section-title', side: 'right' },
+        { selector: '#tracks .section-title', side: 'left' },
+        { selector: '#sponsors .section-title', side: 'right' },
+        { selector: '#faqs .section-title', side: 'left' },
+        { type: 'flower', side: 'right' },
+      ];
+
+
+      const GAP = 12;
+      const PERCH_RATIO = 0.38;
+      const PETAL_X = 0.55;
+      const PETAL_Y = 0.38;
+      let stopsData = [];
+
+
+      function getTitleTextRect(el) {
+        const range = document.createRange();
+        range.selectNodeContents(el);
+        const textRect = range.getBoundingClientRect();
+        if (textRect.width > 0 && textRect.height > 0) return textRect;
+        return el.getBoundingClientRect();
+      }
+
+
+      function perchAt(el, side) {
+        const rect = getTitleTextRect(el);
+        const halfW = butterfly.offsetWidth / 2;
+
+
+        return {
+          x: side === 'left'
+            ? rect.left - GAP - halfW
+            : rect.right + GAP + halfW,
+          y: rect.top + rect.height / 2,
+          scaleX: side === 'left' ? 1 : -1,
+        };
+      }
+
+
+      function flowerPerch() {
+        const flower = document.getElementById('page-flower');
+        if (!flower) return null;
+
+
+        const rect = flower.getBoundingClientRect();
+
+
+        return {
+          x: rect.left + rect.width * PETAL_X,
+          y: rect.top + rect.height * PETAL_Y,
+          scaleX: -1,
+        };
+      }
+
+
+      function getStopPos(stop) {
+        if (stop.type === 'flower') return flowerPerch();
+        const el = document.querySelector(stop.selector);
+        if (!el) return null;
+        return perchAt(el, stop.side);
+      }
+
+
+      function measureStops() {
+        const scrollY = lenis.scroll;
+        const perchY = window.innerHeight * PERCH_RATIO;
+        const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+
+
+        stopsData = stops.map((stop) => {
+          if (stop.type === 'flower') {
+            return { ...stop, anchor: maxScroll };
+          }
+
+
+          const el = document.querySelector(stop.selector);
+          if (!el) return null;
+
+
+          const rect = getTitleTextRect(el);
+          const docCenter = scrollY + rect.top + rect.height / 2;
+
+
+          return { ...stop, anchor: docCenter - perchY };
+        }).filter(Boolean);
+      }
+
+
+      function placeButterfly() {
+        if (!stopsData.length) measureStops();
+        if (!stopsData.length) return;
+
+
+        const maxIndex = stops.length - 1;
+        const travel = gsap.utils.clamp(0, maxIndex, butterflyFlight.t);
+        const idx = Math.min(Math.floor(travel), maxIndex - 1);
+        const frac = travel - idx;
+        const eased = frac * frac * (3 - 2 * frac);
+
+
+        const startPos = getStopPos(stops[idx]);
+        const endPos = getStopPos(stops[Math.min(idx + 1, maxIndex)]);
+        if (!startPos || !endPos) return;
+
+
+        const arc = Math.sin(frac * Math.PI) * 8;
+        const x = gsap.utils.interpolate(startPos.x, endPos.x, eased);
+        const y = gsap.utils.interpolate(startPos.y, endPos.y, eased) + arc;
+
+
+        let scaleX = startPos.scaleX;
+        if (startPos.scaleX !== endPos.scaleX && eased > 0.55) {
+          scaleX = endPos.scaleX;
+        }
+
+
+        gsap.set(butterfly, {
+          xPercent: -50,
+          yPercent: -50,
+          x,
+          y,
+          scaleX,
+          rotation: scaleX === 1 ? -4 : 4,
+        });
+      }
+
+
+      function buildFlightPath() {
+        ScrollTrigger.getById('butterfly-flight')?.kill();
+        gsap.killTweensOf(butterflyFlight);
+        measureStops();
+        butterflyFlight.t = 0;
+        placeButterfly();
+
+
+        if (stopsData.length < 2) return;
+
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            id: 'butterfly-flight',
+            trigger: document.body,
+            scroller: document.documentElement,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 6,
+            invalidateOnRefresh: true,
+            onRefresh: () => {
+              measureStops();
+              placeButterfly();
+            },
+          },
+        });
+
+
+        for (let i = 1; i < stopsData.length; i += 1) {
+          const span = stopsData[i].anchor - stopsData[i - 1].anchor;
+          tl.to(butterflyFlight, {
+            t: i,
+            ease: 'none',
+            duration: Math.max(span, 80),
+          });
+        }
+      }
+
+
+      buildFlightPath();
+      placeButterflyFn = placeButterfly;
+
+
+      const flowerImg = document.getElementById('page-flower');
+      if (flowerImg && !flowerImg.complete) {
+        flowerImg.addEventListener('load', () => {
+          buildFlightPath();
+          ScrollTrigger.refresh();
+          placeButterfly();
+        });
+      }
+
+
+      let butterflyResizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(butterflyResizeTimer);
+        butterflyResizeTimer = setTimeout(() => {
+          buildFlightPath();
+          ScrollTrigger.refresh();
+        }, 200);
+      });
+    }
+
+
+    window.addEventListener('load', () => {
+      initMlhBadge();
+      initFlowerReveal();
+      initSectionTitleGlow();
+      initButterfly();
+      ScrollTrigger.refresh();
+    });
+  </script>
+
 
 </body>
 </html>
+
