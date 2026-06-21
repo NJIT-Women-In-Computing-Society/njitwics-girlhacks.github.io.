@@ -7,6 +7,16 @@
   <title>NJIT GIRLHACKS</title>
 
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q9ZQTSE6NP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Q9ZQTSE6NP');
+  </script>
+
+
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -213,7 +223,7 @@
       pointer-events: none;
       background: radial-gradient(circle, #fae6ff, #ba79d6, transparent);
       transform: translate(-50%, -50%);
-      z-index: 1001;
+      z-index: 4000;
     }
 
 
@@ -224,7 +234,7 @@
       border-radius: 50%;
       background: #ba79d6;
       pointer-events: none;
-      z-index: 1000;
+      z-index: 3999;
       animation: fadeTrail 1s linear forwards;
     }
 
@@ -571,6 +581,48 @@
     }
 
 
+    /* SCHEDULE SECTION */
+    #schedule {
+      background: rgba(0, 0, 0, 0.15);
+      position: relative;
+    }
+
+    .schedule-intro {
+      text-align: center;
+      max-width: 640px;
+      margin: -24px auto 40px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      line-height: 1.7;
+      color: rgba(245, 245, 245, 0.78);
+    }
+
+    .schedule-placeholder {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 32px;
+      text-align: center;
+      border: 1px dashed rgba(186, 121, 214, 0.35);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .schedule-placeholder-icon {
+      display: block;
+      font-size: 1.6rem;
+      color: #ba79d6;
+      text-shadow: 0 0 14px rgba(186, 121, 214, 0.7);
+      margin-bottom: 16px;
+    }
+
+    .schedule-placeholder p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      color: rgba(186, 121, 214, 0.9);
+      line-height: 1.6;
+    }
+
+
     /* SPONSORS SECTION */
     #sponsors {
       background: rgba(0, 0, 0, 0.2);
@@ -671,6 +723,278 @@
     .faq-answer a:hover { color: #9ddcff; }
 
 
+    /* TEAM SECTION */
+    #team {
+      background: rgba(0, 0, 0, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .team-intro {
+      text-align: center;
+      max-width: 640px;
+      margin: -24px auto 48px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      line-height: 1.7;
+      color: rgba(245, 245, 245, 0.78);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      column-gap: 32px;
+      row-gap: 88px;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 48px 0 64px;
+      justify-items: center;
+      align-items: center;
+    }
+
+    .team-orb {
+      --orb-size: 150px;
+      --zigzag-y: 0px;
+      position: relative;
+      width: var(--orb-size);
+      height: auto;
+      min-height: var(--orb-size);
+      padding: 0;
+      border: none;
+      background: transparent;
+      cursor: none;
+      color: inherit;
+      font: inherit;
+      text-align: center;
+      transform: translateY(var(--zigzag-y));
+      z-index: 1;
+      transition: z-index 0s linear 0s;
+    }
+
+    .team-orb:nth-child(odd) {
+      --zigzag-y: -46px;
+    }
+
+    .team-orb:nth-child(even) {
+      --zigzag-y: 46px;
+    }
+
+    .team-grid .team-orb:last-child:nth-child(6n+1) {
+      grid-column: 1 / -1;
+      justify-self: center;
+    }
+
+    .team-orb.is-hovered,
+    .team-orb:hover,
+    .team-orb:focus-visible {
+      z-index: 20;
+    }
+
+    .team-orb:focus-visible {
+      outline: 2px solid #ba79d6;
+      outline-offset: 6px;
+    }
+
+    .team-orb-drift {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      will-change: transform;
+    }
+
+    .team-orb-visual {
+      width: var(--orb-size);
+      height: var(--orb-size);
+      flex-shrink: 0;
+      border-radius: 50%;
+      transition: transform 0.45s ease, box-shadow 0.45s ease, border-color 0.45s ease;
+      filter: drop-shadow(0 10px 28px rgba(186, 121, 214, 0.28));
+      transform: rotate(0deg);
+      transform-origin: center center;
+    }
+
+    .team-orb-photo {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at 30% 25%, rgba(250, 230, 255, 0.35), transparent 55%),
+        radial-gradient(circle, rgba(186, 121, 214, 0.42) 0%, rgba(20, 8, 32, 0.92) 72%);
+      border: 2px solid #ba79d6;
+      box-shadow:
+        0 0 16px rgba(186, 121, 214, 0.38),
+        0 0 32px rgba(186, 121, 214, 0.16);
+      transition: border-color 0.45s ease, box-shadow 0.45s ease;
+    }
+
+    .team-orb-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .team-orb-photo img.team-photo-rotate-right {
+      transform: rotate(90deg) scale(1.4);
+    }
+
+    .team-orb-placeholder {
+      font-size: 1.5rem;
+      color: rgba(250, 230, 255, 0.9);
+      text-shadow: 0 0 12px rgba(186, 121, 214, 0.8);
+      pointer-events: none;
+    }
+
+    .team-orb.has-photo .team-orb-placeholder {
+      display: none;
+    }
+
+    .team-orb-caption {
+      position: relative;
+      margin-top: 14px;
+      width: max-content;
+      max-width: min(200px, 32vw);
+      pointer-events: none;
+      opacity: 1;
+    }
+
+    .team-orb-name {
+      display: block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.5px;
+      color: #fff;
+      line-height: 1.35;
+      text-shadow: 0 0 10px rgba(186, 121, 214, 0.55);
+    }
+
+    .team-orb-role {
+      display: block;
+      margin-top: 3px;
+      font-size: 0.65rem;
+      color: rgba(157, 220, 255, 0.9);
+      line-height: 1.3;
+    }
+
+    .team-orb-name:empty {
+      display: none;
+    }
+
+    .team-orb.is-hovered .team-orb-visual,
+    .team-orb:hover .team-orb-visual,
+    .team-orb:focus-visible .team-orb-visual {
+      transform: scale(1.1) rotate(0deg);
+    }
+
+    .team-orb.is-hovered .team-orb-photo,
+    .team-orb:hover .team-orb-photo,
+    .team-orb:focus-visible .team-orb-photo {
+      border-color: #fae6ff;
+      box-shadow:
+        0 0 12px #fae6ff,
+        0 0 26px #ba79d6,
+        0 0 44px rgba(186, 121, 214, 0.75);
+    }
+
+    @media (max-width: 960px) {
+      .team-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        column-gap: 24px;
+        row-gap: 68px;
+      }
+
+      .team-orb:nth-child(odd) { --zigzag-y: -36px; }
+      .team-orb:nth-child(even) { --zigzag-y: 36px; }
+    }
+
+    @media (max-width: 720px) {
+      .team-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 20px;
+        row-gap: 72px;
+        --orb-size: 132px;
+      }
+
+      .team-orb:nth-child(odd) { --zigzag-y: -28px; }
+      .team-orb:nth-child(even) { --zigzag-y: 28px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .team-orb-drift {
+        transform: none !important;
+      }
+    }
+
+
+    /* SITE FOOTER */
+    .site-footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid rgba(186, 121, 214, 0.28);
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.92) 100%);
+      padding: 64px 24px 56px;
+      text-align: center;
+    }
+
+    .site-footer-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .site-footer-brand {
+      font-family: 'Cinzel', serif;
+      font-size: 1.4rem;
+      letter-spacing: 3px;
+      color: #fff;
+      margin-bottom: 10px;
+      text-shadow: 0 0 12px rgba(186, 121, 214, 0.5);
+    }
+
+    .site-footer-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      color: rgba(157, 220, 255, 0.88);
+      margin-bottom: 28px;
+    }
+
+    .site-footer .social-icons {
+      margin-top: 0;
+      margin-bottom: 32px;
+    }
+
+    .site-footer-divider {
+      width: min(220px, 55vw);
+      height: 2px;
+      margin: 0 auto 28px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, transparent, #ba79d6, #fae6ff, #ba79d6, transparent);
+      box-shadow: 0 0 14px rgba(186, 121, 214, 0.45);
+    }
+
+    .site-footer-copy {
+      font-size: 0.82rem;
+      line-height: 1.6;
+      color: rgba(245, 245, 245, 0.48);
+    }
+
+    .site-footer-copy a {
+      color: rgba(186, 121, 214, 0.85);
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+
+    .site-footer-copy a:hover {
+      color: #9ddcff;
+    }
+
+
     /* FLOWER (bottom-right corner) */
     .flower-corner {
       position: fixed;
@@ -757,8 +1081,10 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#tracks">Tracks</a></li>
+      <li><a href="#schedule">Schedule</a></li>
       <li><a href="#sponsors">Sponsors</a></li>
       <li><a href="#faqs">FAQs</a></li>
+      <li><a href="#team">Team</a></li>
     </ul>
   </nav>
 
@@ -897,6 +1223,19 @@
   </section>
 
 
+  <!-- SCHEDULE SECTION -->
+  <section id="schedule">
+    <div class="section-container">
+      <h2 class="section-title">Schedule</h2>
+      <p class="schedule-intro">Mark your path through the Enchanted Grove — event times and activities will be posted here soon.</p>
+      <div class="schedule-placeholder">
+        <span class="schedule-placeholder-icon" aria-hidden="true">✦</span>
+        <p>Full schedule coming soon.</p>
+      </div>
+    </div>
+  </section>
+
+
   <!-- SPONSORS SECTION -->
   <section id="sponsors">
     <div class="section-container">
@@ -961,7 +1300,129 @@
       </div>
     </div>
   </section>
+
+
+  <!-- TEAM SECTION -->
+  <section id="team">
+    <div class="section-container">
+      <h2 class="section-title">Our Team</h2>
+      <p class="team-intro">Meet the guardians who keep the Enchanted Grove alive.</p>
+      <div class="team-grid" id="team-grid">
+
+        <div class="team-orb" data-name="Lakshita Madhavan" data-role="Director" data-photo="assets/president.jpg">
+          <span class="team-orb-drift">
+            <span class="team-orb-visual"><span class="team-orb-photo"><span class="team-orb-placeholder" aria-hidden="true">✦</span></span></span>
+            <span class="team-orb-caption"><span class="team-orb-name">Lakshita Madhavan</span><span class="team-orb-role">Director</span></span>
+          </span>
+        </div>
+
+        <div class="team-orb" data-name="Stephanie Nicolaescu" data-role="Vice Director" data-photo="assets/vice_president.PNG">
+          <span class="team-orb-drift">
+            <span class="team-orb-visual"><span class="team-orb-photo"><span class="team-orb-placeholder" aria-hidden="true">✦</span></span></span>
+            <span class="team-orb-caption"><span class="team-orb-name">Stephanie Nicolaescu</span><span class="team-orb-role">Vice Director</span></span>
+          </span>
+        </div>
+
+        <div class="team-orb" data-name="Anne Therese Argonza" data-role="Internal Operations Chair" data-photo="assets/secretary.jpg">
+          <span class="team-orb-drift">
+            <span class="team-orb-visual"><span class="team-orb-photo"><span class="team-orb-placeholder" aria-hidden="true">✦</span></span></span>
+            <span class="team-orb-caption"><span class="team-orb-name">Anne Therese Argonza</span><span class="team-orb-role">Internal Operations Chair</span></span>
+          </span>
+        </div>
+
+        <div class="team-orb" data-name="Sharanya Raj" data-role="Finance Chair" data-photo="assets/finance.jpeg">
+          <span class="team-orb-drift">
+            <span class="team-orb-visual"><span class="team-orb-photo"><span class="team-orb-placeholder" aria-hidden="true">✦</span></span></span>
+            <span class="team-orb-caption"><span class="team-orb-name">Sharanya Raj</span><span class="team-orb-role">Finance Chair</span></span>
+          </span>
+        </div>
+
+        <div class="team-orb" data-name="Saidarsha Karunakaran" data-role="Event Logistics Chair" data-photo="assets/event_coordinator1.jpeg">
+          <span class="team-orb-drift">
+            <span class="team-orb-visual"><span class="team-orb-photo"><span class="team-orb-placeholder" aria-hidden="true">✦</span></span></span>
+            <span class="team-orb-caption"><span class="team-orb-name">Saidarsha Karunakaran</span><span class="team-orb-role">Event Logistics Chair</span></span>
+          </span>
+        </div>
+
+        <div class="team-orb" data-name="Garima Thapa" data-role="Event Logistics Chair" data-photo="assets/event_coordinator.jpg">
+          <span class="team-orb-drift">
+            <span class="team-orb-visual"><span class="team-orb-photo"><span class="team-orb-placeholder" aria-hidden="true">✦</span></span></span>
+            <span class="team-orb-caption"><span class="team-orb-name">Garima Thapa</span><span class="team-orb-role">Event Logistics Chair</span></span>
+          </span>
+        </div>
+
+        <div class="team-orb" data-name="Carlin Verano" data-role="Sponsorships Chair" data-photo="assets/industry_partnerships_chair.jpeg">
+          <span class="team-orb-drift">
+            <span class="team-orb-visual"><span class="team-orb-photo"><span class="team-orb-placeholder" aria-hidden="true">✦</span></span></span>
+            <span class="team-orb-caption"><span class="team-orb-name">Carlin Verano</span><span class="team-orb-role">Sponsorships Chair</span></span>
+          </span>
+        </div>
+
+        <div class="team-orb" data-name="Manisha Palaniappan" data-role="Sponsorships Chair" data-photo="assets/sponsorships.jpg">
+          <span class="team-orb-drift">
+            <span class="team-orb-visual"><span class="team-orb-photo"><span class="team-orb-placeholder" aria-hidden="true">✦</span></span></span>
+            <span class="team-orb-caption"><span class="team-orb-name">Manisha Palaniappan</span><span class="team-orb-role">Sponsorships Chair</span></span>
+          </span>
+        </div>
+
+        <div class="team-orb" data-name="Caithy Liao" data-role="Marketing Chair" data-photo="assets/public_relations1.jpg">
+          <span class="team-orb-drift">
+            <span class="team-orb-visual"><span class="team-orb-photo"><span class="team-orb-placeholder" aria-hidden="true">✦</span></span></span>
+            <span class="team-orb-caption"><span class="team-orb-name">Caithy Liao</span><span class="team-orb-role">Marketing Chair</span></span>
+          </span>
+        </div>
+
+        <div class="team-orb" data-name="Azka Faisal" data-role="Marketing Chair" data-photo="assets/public_relations.webp">
+          <span class="team-orb-drift">
+            <span class="team-orb-visual"><span class="team-orb-photo"><span class="team-orb-placeholder" aria-hidden="true">✦</span></span></span>
+            <span class="team-orb-caption"><span class="team-orb-name">Azka Faisal</span><span class="team-orb-role">Marketing Chair</span></span>
+          </span>
+        </div>
+
+        <div class="team-orb" data-name="Priya Patel" data-role="External Outreach Chair" data-photo="assets/external_outreach.jpg">
+          <span class="team-orb-drift">
+            <span class="team-orb-visual"><span class="team-orb-photo"><span class="team-orb-placeholder" aria-hidden="true">✦</span></span></span>
+            <span class="team-orb-caption"><span class="team-orb-name">Priya Patel</span><span class="team-orb-role">External Outreach Chair</span></span>
+          </span>
+        </div>
+
+        <div class="team-orb" data-name="Meera James" data-role="Tech Operations Chair" data-photo="assets/tech_operations.JPG" data-photo-rotate="90">
+          <span class="team-orb-drift">
+            <span class="team-orb-visual"><span class="team-orb-photo"><span class="team-orb-placeholder" aria-hidden="true">✦</span></span></span>
+            <span class="team-orb-caption"><span class="team-orb-name">Meera James</span><span class="team-orb-role">Tech Operations Chair</span></span>
+          </span>
+        </div>
+
+        <div class="team-orb" data-name="Diya Pottangadi" data-role="Internal Outreach Chair" data-photo="assets/event_coordinator2.jpeg">
+          <span class="team-orb-drift">
+            <span class="team-orb-visual"><span class="team-orb-photo"><span class="team-orb-placeholder" aria-hidden="true">✦</span></span></span>
+            <span class="team-orb-caption"><span class="team-orb-name">Diya Pottangadi</span><span class="team-orb-role">Internal Outreach Chair</span></span>
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </section>
   </main>
+
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p class="site-footer-brand">GIRLHACKS 2026</p>
+      <p class="site-footer-tagline">NJIT Women in Computing Society</p>
+      <div class="social-icons">
+        <a href="mailto:wicsnjit@gmail.com"><img src="assets/icons8-email-48.png" alt="Email" /></a>
+        <a href="https://www.linkedin.com/company/wicsnjit/posts/?feedView=all"><img src="assets/icons8-linkedin-48.png" alt="LinkedIn" /></a>
+        <a href="https://discord.com/invite/ZSuqcQaNG6"><img src="assets/icons8-discord-48.png" alt="Discord" /></a>
+        <a href="https://www.instagram.com/girlhacksnjit/"><img src="assets/icons8-instagram-48.png" alt="Instagram" /></a>
+      </div>
+      <div class="site-footer-divider" aria-hidden="true"></div>
+      <p class="site-footer-copy">
+        © 2026 NJIT WiCS. All rights reserved.<br />
+        <a href="https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md" target="_blank" rel="noopener noreferrer">MLH Code of Conduct</a>
+      </p>
+    </div>
+  </footer>
 
 
   <script>
@@ -1207,8 +1668,10 @@
         { selector: '.hero h1', side: 'left' },
         { selector: '#about .section-title', side: 'right' },
         { selector: '#tracks .section-title', side: 'left' },
-        { selector: '#sponsors .section-title', side: 'right' },
-        { selector: '#faqs .section-title', side: 'left' },
+        { selector: '#schedule .section-title', side: 'right' },
+        { selector: '#sponsors .section-title', side: 'left' },
+        { selector: '#faqs .section-title', side: 'right' },
+        { selector: '#team .section-title', side: 'left' },
         { type: 'flower', side: 'right' },
       ];
 
@@ -1396,10 +1859,88 @@
     }
 
 
+    function initTeamGrid() {
+      const grid = document.getElementById('team-grid');
+      if (!grid) return;
+
+      const orbs = grid.querySelectorAll('.team-orb');
+      const orbTweens = new Map();
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function pauseOrb(orb) {
+        orbTweens.get(orb)?.forEach((tween) => tween.pause());
+      }
+
+      function playOrb(orb) {
+        orbTweens.get(orb)?.forEach((tween) => tween.play());
+      }
+
+      orbs.forEach((orb) => {
+        const photo = orb.dataset.photo;
+        if (photo) {
+          const photoWrap = orb.querySelector('.team-orb-photo');
+          const img = document.createElement('img');
+          img.src = photo;
+          img.alt = orb.dataset.name || orb.dataset.role || 'Team member';
+          if (orb.dataset.photoRotate === '90') {
+            img.classList.add('team-photo-rotate-right');
+          }
+          photoWrap.prepend(img);
+          orb.classList.add('has-photo');
+        }
+
+        const drift = orb.querySelector('.team-orb-drift');
+
+        if (drift && !reducedMotion) {
+          gsap.set(drift, { rotation: 0, transformOrigin: '50% 50%' });
+
+          const xDistance = gsap.utils.random(6, 14) * (Math.random() > 0.5 ? 1 : -1);
+          const yDistance = gsap.utils.random(8, 16) * (Math.random() > 0.5 ? 1 : -1);
+          const duration = gsap.utils.random(4, 7);
+          const delay = gsap.utils.random(0, 2.5);
+
+          const tweens = [
+            gsap.to(drift, {
+              x: xDistance,
+              rotation: 0,
+              duration,
+              repeat: -1,
+              yoyo: true,
+              ease: 'sine.inOut',
+              delay,
+            }),
+            gsap.to(drift, {
+              y: yDistance,
+              rotation: 0,
+              duration: duration * gsap.utils.random(0.85, 1.2),
+              repeat: -1,
+              yoyo: true,
+              ease: 'sine.inOut',
+              delay: delay * 0.45,
+            }),
+          ];
+
+          orbTweens.set(orb, tweens);
+        }
+
+        orb.addEventListener('mouseenter', () => {
+          orb.classList.add('is-hovered');
+          pauseOrb(orb);
+        });
+
+        orb.addEventListener('mouseleave', () => {
+          orb.classList.remove('is-hovered');
+          playOrb(orb);
+        });
+      });
+    }
+
+
     window.addEventListener('load', () => {
       initMlhBadge();
       initFlowerReveal();
       initSectionTitleGlow();
+      initTeamGrid();
       initButterfly();
       ScrollTrigger.refresh();
     });
