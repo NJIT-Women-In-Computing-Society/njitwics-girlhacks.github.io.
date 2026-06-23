@@ -62,7 +62,8 @@
 
     /* HERO */
     .hero {
-      height: 100vh;
+      min-height: 100vh;
+      padding: calc(var(--nav-height) + 20px) 0 60px;
       background: transparent;
       display: flex;
       align-items: center;
@@ -79,6 +80,15 @@
       padding: 20px;
       animation: fadeUp 1.5s ease;
       z-index: 2;
+    }
+
+
+    .hero-logo {
+      display: block;
+      max-width: 460px;
+      width: min(80vw, 460px);
+      margin: 0 auto 0;
+      filter: drop-shadow(0 0 24px rgba(186, 121, 214, 0.45)) drop-shadow(0 0 48px rgba(157, 220, 255, 0.25));
     }
 
 
@@ -148,7 +158,7 @@
 
     /* COUNTDOWN */
     .countdown {
-      margin-top: 20px;
+      margin-top: 12px;
       text-align: center;
     }
 
@@ -299,7 +309,7 @@
       width: 100%;
       padding: 12px 40px;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       z-index: 1000;
       cursor: none;
@@ -310,12 +320,6 @@
       box-sizing: border-box;
       min-height: var(--nav-height);
       overflow: visible;
-    }
-
-    .logo-img {
-      height: 40px; 
-      width: auto;  
-      margin-right: 12px; 
     }
 
     .nav-logo {
@@ -329,6 +333,7 @@
       text-decoration: none;
       cursor: none;
       text-shadow: 0 0 10px rgba(186, 121, 214, 0.5);
+      margin-right: auto;
     }
     #mlh-trust-badge {
       position: fixed;
@@ -877,7 +882,7 @@
   .team-orb-name {
   display: block;
   font-family: 'Cinzel', serif;
-  font-size: 0.90rem;   
+  font-size: 0.96rem;   
   letter-spacing: 0.5px;
   color: #fff;
   line-height: 1.35;
@@ -887,7 +892,7 @@
 .team-orb-role {
   display: block;
   margin-top: 3px;
-  font-size: 0.83rem;   
+  font-size: 0.92rem;   
   color: rgba(157, 220, 255, 0.9);
   line-height: 1.3;
   }
@@ -1088,10 +1093,7 @@
 <body>
   <div id="particles"></div>
   <nav class="navbar">
-    <a href="#" class="nav-logo">
-  <img src="assets/girlhacks_logo.webp" alt="GirlHacks Logo" class="logo-img" />
-  GIRLHACKS
-  </a>
+    <a href="#" class="nav-logo">GIRLHACKS</a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#tracks">Tracks</a></li>
@@ -1129,8 +1131,7 @@
 
 
     <div class="hero-content">
-      <h1>GIRLHACKS 2026</h1>
-
+      <img src="assets/girlhacks_logo.webp" alt="GirlHacks 2026 Logo" class="hero-logo" />
 
       <div id="countdown" class="countdown">
         <h2>Countdown to GirlHacks 2026</h2>
@@ -1159,11 +1160,6 @@
       <a href="https://forms.gle/FUNx8dELwSFvPktA6" class="glow-button" target="_blank">Register Now!</a>
 
 
-      <div class="social-icons">
-        <a href="mailto:wicsnjit@gmail.com"><img src="assets/icons8-email-48.png" alt="Email" /></a>
-        <a href="https://www.linkedin.com/company/wicsnjit/posts/?feedView=all"><img src="assets/icons8-linkedin-48.png" /></a>
-        <a href="https://www.instagram.com/girlhacksnjit/"><img src="assets/icons8-instagram-48.png" /></a>
-      </div>
 
 
       </div>
@@ -1611,18 +1607,10 @@
 
     function initMlhBadge() {
       const badge = document.getElementById('mlh-trust-badge');
-      const hero = document.querySelector('.hero');
-      if (!badge || !hero) return;
+      if (!badge) return;
 
-
-      ScrollTrigger.create({
-        id: 'mlh-badge-hero',
-        trigger: hero,
-        scroller: document.documentElement,
-        start: 'bottom top',
-        onEnter: () => badge.classList.add('is-hidden'),
-        onLeaveBack: () => badge.classList.remove('is-hidden'),
-      });
+      // Keep the badge visible at all times, regardless of scroll position.
+      badge.classList.remove('is-hidden');
     }
 
 
@@ -1691,7 +1679,7 @@
 
 
       const stops = [
-        { selector: '.hero h1', side: 'left' },
+        { selector: '.hero-logo', side: 'left' },
         { selector: '#about .section-title', side: 'right' },
         { selector: '#tracks .section-title', side: 'left' },
         { selector: '#schedule .section-title', side: 'right' },
@@ -1975,4 +1963,3 @@
 
 </body>
 </html>
-
