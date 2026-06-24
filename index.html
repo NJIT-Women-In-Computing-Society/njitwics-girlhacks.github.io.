@@ -62,7 +62,8 @@
 
     /* HERO */
     .hero {
-      height: 100vh;
+      min-height: 100vh;
+      padding: calc(var(--nav-height) + 20px) 0 60px;
       background: transparent;
       display: flex;
       align-items: center;
@@ -79,6 +80,15 @@
       padding: 20px;
       animation: fadeUp 1.5s ease;
       z-index: 2;
+    }
+
+
+    .hero-logo {
+      display: block;
+      max-width: 460px;
+      width: min(80vw, 460px);
+      margin: 0 auto 0;
+      filter: drop-shadow(0 0 24px rgba(186, 121, 214, 0.45)) drop-shadow(0 0 48px rgba(157, 220, 255, 0.25));
     }
 
 
@@ -148,7 +158,7 @@
 
     /* COUNTDOWN */
     .countdown {
-      margin-top: 20px;
+      margin-top: 12px;
       text-align: center;
     }
 
@@ -198,11 +208,13 @@
 
     /* FLOATING PARTICLES */
     .particle {
-      position: absolute;
+      position: fixed;
       width: 10px;
       height: 10px;
       border-radius: 70%;
       background: #fff6b0;
+      pointer-events: none;  
+      z-index: 1; 
       animation: floatParticle linear infinite;
     }
 
@@ -290,16 +302,14 @@
       }
     }
 
-
-    /* NAVIGATION BAR */
     .navbar {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      padding: 20px 40px;
+      padding: 12px 40px;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       z-index: 1000;
       cursor: none;
@@ -309,10 +319,12 @@
       border-bottom: 1px solid rgba(186, 121, 214, 0.15);
       box-sizing: border-box;
       min-height: var(--nav-height);
+      overflow: visible;
     }
 
-
     .nav-logo {
+      display: inline-flex; 
+      align-items: center;  
       font-family: 'Cinzel', serif;
       font-size: 1.2rem;
       font-weight: 700;
@@ -321,9 +333,8 @@
       text-decoration: none;
       cursor: none;
       text-shadow: 0 0 10px rgba(186, 121, 214, 0.5);
+      margin-right: auto;
     }
-
-
     #mlh-trust-badge {
       position: fixed;
       top: calc(var(--nav-height) + 10px);
@@ -722,216 +733,220 @@
     .faq-answer a { color: #ba79d6; text-decoration: underline; transition: color 0.3s ease; }
     .faq-answer a:hover { color: #9ddcff; }
 
+  /* TEAM SECTION */
+  #team {
+    background: rgba(0, 0, 0, 0.25);
+    position: relative;
+    overflow: hidden;
+  }
 
-    /* TEAM SECTION */
-    #team {
-      background: rgba(0, 0, 0, 0.25);
-      position: relative;
-      overflow: hidden;
-    }
+  .team-intro {
+    text-align: center;
+    max-width: 640px;
+    margin: -24px auto 48px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: rgba(245, 245, 245, 0.78);
+  }
 
-    .team-intro {
-      text-align: center;
-      max-width: 640px;
-      margin: -24px auto 48px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
-      line-height: 1.7;
-      color: rgba(245, 245, 245, 0.78);
-    }
+  .team-grid {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  column-gap: 20px;    /* 16px → 20px */
+  row-gap: 96px;       /* 80px → 96px */
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 56px 24px 100px;
+  justify-items: center;
+  align-items: center;
+  }
 
+  .team-orb {
+    --orb-size: 168px;
+    --zigzag-y: 0px;
+    position: relative;
+    width: var(--orb-size);
+    height: auto;
+    min-height: var(--orb-size);
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: none;
+    color: inherit;
+    font: inherit;
+    text-align: center;
+    transform: translateY(var(--zigzag-y));
+    z-index: 1;
+    transition: z-index 0s linear 0s;
+  }
+
+  /* Row 1 — cols 2,4,6,8 (centered, zigzag up/down) */
+  .team-orb:nth-child(1)  { grid-column: 2  / span 2; grid-row: 1; --zigzag-y: -24px; }
+  .team-orb:nth-child(2)  { grid-column: 4  / span 2; grid-row: 1; --zigzag-y:  24px; }
+  .team-orb:nth-child(3)  { grid-column: 6  / span 2; grid-row: 1; --zigzag-y: -24px; }
+  .team-orb:nth-child(4)  { grid-column: 8  / span 2; grid-row: 1; --zigzag-y:  24px; }
+
+  /* Row 2 — cols 1,3,5,7,9 (5 across, zigzag continues) */
+  .team-orb:nth-child(5)  { grid-column: 1  / span 2; grid-row: 2; --zigzag-y: -24px; }
+  .team-orb:nth-child(6)  { grid-column: 3  / span 2; grid-row: 2; --zigzag-y:  24px; }
+  .team-orb:nth-child(7)  { grid-column: 5  / span 2; grid-row: 2; --zigzag-y: -24px; }
+  .team-orb:nth-child(8)  { grid-column: 7  / span 2; grid-row: 2; --zigzag-y:  24px; }
+  .team-orb:nth-child(9)  { grid-column: 9  / span 2; grid-row: 2; --zigzag-y: -24px; }
+
+  /* Row 3 — cols 2,4,6,8 (same as row 1) */
+  .team-orb:nth-child(10) { grid-column: 2  / span 2; grid-row: 3; --zigzag-y:  24px; }
+  .team-orb:nth-child(11) { grid-column: 4  / span 2; grid-row: 3; --zigzag-y: -24px; }
+  .team-orb:nth-child(12) { grid-column: 6  / span 2; grid-row: 3; --zigzag-y:  24px; }
+  .team-orb:nth-child(13) { grid-column: 8  / span 2; grid-row: 3; --zigzag-y: -24px; }
+
+  .team-orb.is-hovered,
+  .team-orb:hover,
+  .team-orb:focus-visible {
+    z-index: 20;
+  }
+
+  .team-orb:focus-visible {
+    outline: 2px solid #ba79d6;
+    outline-offset: 6px;
+  }
+
+  .team-orb-drift {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    will-change: transform;
+  }
+
+  .team-orb-visual {
+    width: var(--orb-size);
+    height: var(--orb-size);
+    flex-shrink: 0;
+    border-radius: 50%;
+    transition: transform 0.45s ease, box-shadow 0.45s ease, border-color 0.45s ease;
+    filter: drop-shadow(0 10px 28px rgba(186, 121, 214, 0.28));
+    transform-origin: center center;
+  }
+
+  .team-orb-photo {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+      radial-gradient(circle at 30% 25%, rgba(250, 230, 255, 0.35), transparent 55%),
+      radial-gradient(circle, rgba(186, 121, 214, 0.42) 0%, rgba(20, 8, 32, 0.92) 72%);
+    border: 2px solid #ba79d6;
+    box-shadow:
+      0 0 16px rgba(186, 121, 214, 0.38),
+      0 0 32px rgba(186, 121, 214, 0.16);
+    transition: border-color 0.45s ease, box-shadow 0.45s ease;
+  }
+
+  .team-orb-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .team-orb-photo img.team-photo-rotate-right {
+    transform: rotate(90deg) scale(1.4);
+  }
+
+  .team-orb-placeholder {
+    font-size: 1.5rem;
+    color: rgba(250, 230, 255, 0.9);
+    text-shadow: 0 0 12px rgba(186, 121, 214, 0.8);
+    pointer-events: none;
+  }
+
+  .team-orb.has-photo .team-orb-placeholder {
+    display: none;
+  }
+
+  .team-orb-caption {
+    position: relative;
+    margin-top: 14px;
+    width: max-content;
+    max-width: min(200px, 32vw);
+    pointer-events: none;
+    opacity: 1;
+  }
+
+  .team-orb-name {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.96rem;   
+  letter-spacing: 0.5px;
+  color: #fff;
+  line-height: 1.35;
+  text-shadow: 0 0 10px rgba(186, 121, 214, 0.55);
+  }
+
+.team-orb-role {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.92rem;   
+  color: rgba(157, 220, 255, 0.9);
+  line-height: 1.3;
+  }
+
+  .team-orb-name:empty {
+    display: none;
+  }
+
+  .team-orb.is-hovered .team-orb-visual,
+  .team-orb:hover .team-orb-visual,
+  .team-orb:focus-visible .team-orb-visual {
+    transform: scale(1.1);
+  }
+
+  .team-orb.is-hovered .team-orb-photo,
+  .team-orb:hover .team-orb-photo,
+  .team-orb:focus-visible .team-orb-photo {
+    border-color: #fae6ff;
+    box-shadow:
+      0 0 12px #fae6ff,
+      0 0 26px #ba79d6,
+      0 0 44px rgba(186, 121, 214, 0.75);
+  }
+
+  /* Reset explicit placement on tablet/mobile so auto-flow takes over */
+  @media (max-width: 960px) {
     .team-grid {
-      display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      column-gap: 32px;
-      row-gap: 88px;
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 48px 0 64px;
-      justify-items: center;
-      align-items: center;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      column-gap: 20px;
+      row-gap: 64px;
     }
-
-    .team-orb {
-      --orb-size: 150px;
+    .team-orb:nth-child(n) {
+      grid-column: auto;
+      grid-row: auto;
       --zigzag-y: 0px;
-      position: relative;
-      width: var(--orb-size);
-      height: auto;
-      min-height: var(--orb-size);
-      padding: 0;
-      border: none;
-      background: transparent;
-      cursor: none;
-      color: inherit;
-      font: inherit;
-      text-align: center;
-      transform: translateY(var(--zigzag-y));
-      z-index: 1;
-      transition: z-index 0s linear 0s;
     }
+    .team-orb:nth-child(odd)  { --zigzag-y: -20px; }
+    .team-orb:nth-child(even) { --zigzag-y:  20px; }
+  }
 
-    .team-orb:nth-child(odd) {
-      --zigzag-y: -46px;
+  @media (max-width: 720px) {
+    .team-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 16px;
+      row-gap: 56px;
+      --orb-size: 132px;
     }
+    .team-orb:nth-child(odd)  { --zigzag-y: -16px; }
+    .team-orb:nth-child(even) { --zigzag-y:  16px; }
+  }
 
-    .team-orb:nth-child(even) {
-      --zigzag-y: 46px;
-    }
-
-    .team-grid .team-orb:last-child:nth-child(6n+1) {
-      grid-column: 1 / -1;
-      justify-self: center;
-    }
-
-    .team-orb.is-hovered,
-    .team-orb:hover,
-    .team-orb:focus-visible {
-      z-index: 20;
-    }
-
-    .team-orb:focus-visible {
-      outline: 2px solid #ba79d6;
-      outline-offset: 6px;
-    }
-
-    .team-orb-drift {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      will-change: transform;
-    }
-
-    .team-orb-visual {
-      width: var(--orb-size);
-      height: var(--orb-size);
-      flex-shrink: 0;
-      border-radius: 50%;
-      transition: transform 0.45s ease, box-shadow 0.45s ease, border-color 0.45s ease;
-      filter: drop-shadow(0 10px 28px rgba(186, 121, 214, 0.28));
-      transform: rotate(0deg);
-      transform-origin: center center;
-    }
-
-    .team-orb-photo {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background:
-        radial-gradient(circle at 30% 25%, rgba(250, 230, 255, 0.35), transparent 55%),
-        radial-gradient(circle, rgba(186, 121, 214, 0.42) 0%, rgba(20, 8, 32, 0.92) 72%);
-      border: 2px solid #ba79d6;
-      box-shadow:
-        0 0 16px rgba(186, 121, 214, 0.38),
-        0 0 32px rgba(186, 121, 214, 0.16);
-      transition: border-color 0.45s ease, box-shadow 0.45s ease;
-    }
-
-    .team-orb-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .team-orb-photo img.team-photo-rotate-right {
-      transform: rotate(90deg) scale(1.4);
-    }
-
-    .team-orb-placeholder {
-      font-size: 1.5rem;
-      color: rgba(250, 230, 255, 0.9);
-      text-shadow: 0 0 12px rgba(186, 121, 214, 0.8);
-      pointer-events: none;
-    }
-
-    .team-orb.has-photo .team-orb-placeholder {
-      display: none;
-    }
-
-    .team-orb-caption {
-      position: relative;
-      margin-top: 14px;
-      width: max-content;
-      max-width: min(200px, 32vw);
-      pointer-events: none;
-      opacity: 1;
-    }
-
-    .team-orb-name {
-      display: block;
-      font-family: 'Cinzel', serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.5px;
-      color: #fff;
-      line-height: 1.35;
-      text-shadow: 0 0 10px rgba(186, 121, 214, 0.55);
-    }
-
-    .team-orb-role {
-      display: block;
-      margin-top: 3px;
-      font-size: 0.65rem;
-      color: rgba(157, 220, 255, 0.9);
-      line-height: 1.3;
-    }
-
-    .team-orb-name:empty {
-      display: none;
-    }
-
-    .team-orb.is-hovered .team-orb-visual,
-    .team-orb:hover .team-orb-visual,
-    .team-orb:focus-visible .team-orb-visual {
-      transform: scale(1.1) rotate(0deg);
-    }
-
-    .team-orb.is-hovered .team-orb-photo,
-    .team-orb:hover .team-orb-photo,
-    .team-orb:focus-visible .team-orb-photo {
-      border-color: #fae6ff;
-      box-shadow:
-        0 0 12px #fae6ff,
-        0 0 26px #ba79d6,
-        0 0 44px rgba(186, 121, 214, 0.75);
-    }
-
-    @media (max-width: 960px) {
-      .team-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        column-gap: 24px;
-        row-gap: 68px;
-      }
-
-      .team-orb:nth-child(odd) { --zigzag-y: -36px; }
-      .team-orb:nth-child(even) { --zigzag-y: 36px; }
-    }
-
-    @media (max-width: 720px) {
-      .team-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        column-gap: 20px;
-        row-gap: 72px;
-        --orb-size: 132px;
-      }
-
-      .team-orb:nth-child(odd) { --zigzag-y: -28px; }
-      .team-orb:nth-child(even) { --zigzag-y: 28px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .team-orb-drift {
-        transform: none !important;
-      }
-    }
-
-
+  @media (prefers-reduced-motion: reduce) {
+    .team-orb-drift { transform: none !important; }
+  }
     /* SITE FOOTER */
     .site-footer {
       position: relative;
@@ -1076,6 +1091,7 @@
 
 
 <body>
+  <div id="particles"></div>
   <nav class="navbar">
     <a href="#" class="nav-logo">GIRLHACKS</a>
     <ul class="nav-links">
@@ -1087,7 +1103,6 @@
       <li><a href="#team">Team</a></li>
     </ul>
   </nav>
-
 
   <div class="butterfly-container" id="butterfly">
     <img src="assets/butterfly.png" alt="Purple Butterfly" class="butterfly-img">
@@ -1112,12 +1127,11 @@
 
 
     <!-- PARTICLES -->
-    <div id="particles"></div>
+    
 
 
     <div class="hero-content">
-      <h1>GIRLHACKS 2026</h1>
-
+      <img src="assets/girlhacks_logo.webp" alt="GirlHacks 2026 Logo" class="hero-logo" />
 
       <div id="countdown" class="countdown">
         <h2>Countdown to GirlHacks 2026</h2>
@@ -1146,12 +1160,6 @@
       <a href="https://forms.gle/FUNx8dELwSFvPktA6" class="glow-button" target="_blank">Register Now!</a>
 
 
-      <div class="social-icons">
-        <a href="mailto:wicsnjit@gmail.com"><img src="assets/icons8-email-48.png" alt="Email" /></a>
-        <a href="https://www.linkedin.com/company/wicsnjit/posts/?feedView=all"><img src="assets/icons8-linkedin-48.png" /></a>
-        <a href="https://discord.com/invite/ZSuqcQaNG6"><img src="assets/icons8-discord-48.png" /></a>
-        <a href="https://www.instagram.com/girlhacksnjit/"><img src="assets/icons8-instagram-48.png" /></a>
-      </div>
 
 
       </div>
@@ -1163,16 +1171,17 @@
   <!-- ABOUT SECTION -->
   <section id="about">
     <div class="section-container">
-      <h2 class="section-title">The Enchanted Story</h2>
+      <h2 class="section-title">Where Innovation Takes Root</h2>
       <div class="about-content">
         <div class="about-text">
-          <p>Welcome to the Enchanted Grove of GirlHacks, NJIT's premier 24-hour MLH-sanctioned hackathon. Here, we believe that when logic meets magic, innovation truly begins to bloom.
-          Step into a digital forest designed to empower women and non-binary tech innovators to join our quest. </p>
-          <p>Whether you are a seasoned sorcerer of code or a curious apprentice, you'll be supported by ancient guardians, our industry mentors, offering workshops and tech talks to guide your path. Our mission is to foster an inclusive sanctuary where diverse students can collaborate, learn, and showcase their craft, regardless of their background or institution.</p>
-          <p>The forest is waiting. What will you create?</p>
+          <p>Welcome to the Grove, a dedicated tech ecosystem where logic meets creativity and community flourishes. GirlHacks is a 24-hour hackathon hosted by the Women in Computing Society at the New Jersey Institute of Technology. Our mission is to create an inclusive sanctuary that empowers women and non-binary tech innovators to collaborate, learn, and showcase their craft.</p>
+          
+          <p>Whether you are writing your first line of code or deploying complex architectures, you belong here. Supported by industry mentors, hands-on technical workshops, and a collaborative network, we provide the resources you need to build your ideas from the ground up.</p>
+          
+          <p>The space is set. What will you bring to life?</p>
         </div>
         <div class="about-graphic">
-          <img src="assets/about.jpg" alt="The Enchanted Grove of GirlHacks" />
+          <img src="assets/about.jpg" alt="GirlHacks at NJIT" />
         </div>
       </div>
     </div>
@@ -1182,7 +1191,7 @@
   <!-- TRACKS SECTION -->
   <section id="tracks">
     <div class="section-container">
-      <h2 class="section-title">Mystical Exploration Tracks</h2>
+      <h2 class="section-title">Project Tracks</h2>
     </div>
     <div class="tracks-carousel">
       <div class="tracks-carousel-track">
@@ -1287,7 +1296,9 @@
         </div>
         <div class="faq-item">
           <div class="faq-question">What should I bring?</div>
-          <div class="faq-answer"><p>Attendees should bring a form of identification, and whatever you need to hack. This includes your laptop, your charger, and any hardware you'll need for your project.</p></div>
+          <div class="faq-answer">
+            <p>Attendees should bring a form of identification, a laptop, and a charger. We also recommend bringing a reusable water bottle and anything else you might need to stay overnight.</p>
+          </div>
         </div>
         <div class="faq-item">
           <div class="faq-question">Do you offer parking?</div>
@@ -1295,7 +1306,16 @@
         </div>
         <div class="faq-item">
           <div class="faq-question">Rules + Code of Conduct</div>
-          <div class="faq-answer"><p>We will be abiding by the <a href="https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md?ajs_uid=018c1e10-a61b-c79a-52b8-049749754068&utm_campaign=Member+Event+-+Onboarding+Reminder&utm_content=Onboarding+Season+Launch&utm_medium=Email&utm_source=Customer.io" target="_blank" rel="noopener noreferrer">MLH Code of Conduct</a>. If you have any more questions that we have not answered please feel free to email us here! <a href="mailto:wicsnjit@gmail.com" class="email-icon-link"><img src="assets/icons8-email-48.png" alt="Email" /></a></p></div>
+          <div class="faq-answer">
+            <p>We will be abiding by the <a href="https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md?ajs_uid=018c1e10-a61b-c79a-52b8-049749754068&utm_campaign=Member+Event+-+Onboarding+Reminder&utm_content=Onboarding+Season+Launch&utm_medium=Email&utm_source=Customer.io" target="_blank" rel="noopener noreferrer">MLH Code of Conduct</a>.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Have Additional Questions?</div>
+          <div class="faq-answer">
+            <p>If you have any questions that we haven't answered, please feel free to reach out to us here: <a href="mailto:wicsnjit@gmail.com" class="email-icon-link"><img src="assets/icons8-email-48.png" alt="Email" /></a></p>
+          </div>
         </div>
       </div>
     </div>
@@ -1306,9 +1326,10 @@
   <section id="team">
     <div class="section-container">
       <h2 class="section-title">Our Team</h2>
-      <p class="team-intro">Meet the guardians who keep the Enchanted Grove alive.</p>
+      <p class="team-intro">Meet the GirlHacks 2026 leadership team that brought this event to life.</p>
       <div class="team-grid" id="team-grid">
 
+        <!-- ROW 1: Director, Vice Director, Finance, Tech Ops -->
         <div class="team-orb" data-name="Lakshita Madhavan" data-role="Director" data-photo="assets/president.jpg">
           <span class="team-orb-drift">
             <span class="team-orb-visual"><span class="team-orb-photo"><span class="team-orb-placeholder" aria-hidden="true">✦</span></span></span>
@@ -1322,11 +1343,11 @@
             <span class="team-orb-caption"><span class="team-orb-name">Stephanie Nicolaescu</span><span class="team-orb-role">Vice Director</span></span>
           </span>
         </div>
-
-        <div class="team-orb" data-name="Anne Therese Argonza" data-role="Internal Operations Chair" data-photo="assets/secretary.jpg">
+        
+        <div class="team-orb" data-name="Meera James" data-role="Tech Operations Chair" data-photo="assets/tech_operations.JPG" data-photo-rotate="90">
           <span class="team-orb-drift">
             <span class="team-orb-visual"><span class="team-orb-photo"><span class="team-orb-placeholder" aria-hidden="true">✦</span></span></span>
-            <span class="team-orb-caption"><span class="team-orb-name">Anne Therese Argonza</span><span class="team-orb-role">Internal Operations Chair</span></span>
+            <span class="team-orb-caption"><span class="team-orb-name">Meera James</span><span class="team-orb-role">Tech Operations Chair</span></span>
           </span>
         </div>
 
@@ -1337,31 +1358,11 @@
           </span>
         </div>
 
-        <div class="team-orb" data-name="Saidarsha Karunakaran" data-role="Event Logistics Chair" data-photo="assets/event_coordinator1.jpeg">
+        <!-- ROW 2: Internal Ops, Marketing x2, Sponsorships x2 -->
+        <div class="team-orb" data-name="Anne Therese Argonza" data-role="Internal Operations Chair" data-photo="assets/secretary.jpg">
           <span class="team-orb-drift">
             <span class="team-orb-visual"><span class="team-orb-photo"><span class="team-orb-placeholder" aria-hidden="true">✦</span></span></span>
-            <span class="team-orb-caption"><span class="team-orb-name">Saidarsha Karunakaran</span><span class="team-orb-role">Event Logistics Chair</span></span>
-          </span>
-        </div>
-
-        <div class="team-orb" data-name="Garima Thapa" data-role="Event Logistics Chair" data-photo="assets/event_coordinator.jpg">
-          <span class="team-orb-drift">
-            <span class="team-orb-visual"><span class="team-orb-photo"><span class="team-orb-placeholder" aria-hidden="true">✦</span></span></span>
-            <span class="team-orb-caption"><span class="team-orb-name">Garima Thapa</span><span class="team-orb-role">Event Logistics Chair</span></span>
-          </span>
-        </div>
-
-        <div class="team-orb" data-name="Carlin Verano" data-role="Sponsorships Chair" data-photo="assets/industry_partnerships_chair.jpeg">
-          <span class="team-orb-drift">
-            <span class="team-orb-visual"><span class="team-orb-photo"><span class="team-orb-placeholder" aria-hidden="true">✦</span></span></span>
-            <span class="team-orb-caption"><span class="team-orb-name">Carlin Verano</span><span class="team-orb-role">Sponsorships Chair</span></span>
-          </span>
-        </div>
-
-        <div class="team-orb" data-name="Manisha Palaniappan" data-role="Sponsorships Chair" data-photo="assets/sponsorships.jpg">
-          <span class="team-orb-drift">
-            <span class="team-orb-visual"><span class="team-orb-photo"><span class="team-orb-placeholder" aria-hidden="true">✦</span></span></span>
-            <span class="team-orb-caption"><span class="team-orb-name">Manisha Palaniappan</span><span class="team-orb-role">Sponsorships Chair</span></span>
+            <span class="team-orb-caption"><span class="team-orb-name">Anne Therese Argonza</span><span class="team-orb-role">Internal Operations Chair</span></span>
           </span>
         </div>
 
@@ -1379,17 +1380,39 @@
           </span>
         </div>
 
+        <div class="team-orb" data-name="Carlin Verano" data-role="Sponsorships Chair" data-photo="assets/industry_partnerships_chair.jpeg">
+          <span class="team-orb-drift">
+            <span class="team-orb-visual"><span class="team-orb-photo"><span class="team-orb-placeholder" aria-hidden="true">✦</span></span></span>
+            <span class="team-orb-caption"><span class="team-orb-name">Carlin Verano</span><span class="team-orb-role">Sponsorships Chair</span></span>
+          </span>
+        </div>
+
+        <div class="team-orb" data-name="Manisha Palaniappan" data-role="Sponsorships Chair" data-photo="assets/sponsorships.jpg">
+          <span class="team-orb-drift">
+            <span class="team-orb-visual"><span class="team-orb-photo"><span class="team-orb-placeholder" aria-hidden="true">✦</span></span></span>
+            <span class="team-orb-caption"><span class="team-orb-name">Manisha Palaniappan</span><span class="team-orb-role">Sponsorships Chair</span></span>
+          </span>
+        </div>
+
+        <!-- ROW 3: Event Logistics x2, Internal Outreach, External Outreach -->
+        <div class="team-orb" data-name="Saidarsha Karunakaran" data-role="Event Logistics Chair" data-photo="assets/event_coordinator1.jpeg">
+          <span class="team-orb-drift">
+            <span class="team-orb-visual"><span class="team-orb-photo"><span class="team-orb-placeholder" aria-hidden="true">✦</span></span></span>
+            <span class="team-orb-caption"><span class="team-orb-name">Saidarsha Karunakaran</span><span class="team-orb-role">Event Logistics Chair</span></span>
+          </span>
+        </div>
+
+        <div class="team-orb" data-name="Garima Thapa" data-role="Event Logistics Chair" data-photo="assets/event_coordinator.jpg">
+          <span class="team-orb-drift">
+            <span class="team-orb-visual"><span class="team-orb-photo"><span class="team-orb-placeholder" aria-hidden="true">✦</span></span></span>
+            <span class="team-orb-caption"><span class="team-orb-name">Garima Thapa</span><span class="team-orb-role">Event Logistics Chair</span></span>
+          </span>
+        </div>
+
         <div class="team-orb" data-name="Priya Patel" data-role="External Outreach Chair" data-photo="assets/external_outreach.jpg">
           <span class="team-orb-drift">
             <span class="team-orb-visual"><span class="team-orb-photo"><span class="team-orb-placeholder" aria-hidden="true">✦</span></span></span>
             <span class="team-orb-caption"><span class="team-orb-name">Priya Patel</span><span class="team-orb-role">External Outreach Chair</span></span>
-          </span>
-        </div>
-
-        <div class="team-orb" data-name="Meera James" data-role="Tech Operations Chair" data-photo="assets/tech_operations.JPG" data-photo-rotate="90">
-          <span class="team-orb-drift">
-            <span class="team-orb-visual"><span class="team-orb-photo"><span class="team-orb-placeholder" aria-hidden="true">✦</span></span></span>
-            <span class="team-orb-caption"><span class="team-orb-name">Meera James</span><span class="team-orb-role">Tech Operations Chair</span></span>
           </span>
         </div>
 
@@ -1400,20 +1423,19 @@
           </span>
         </div>
 
+
       </div>
     </div>
   </section>
   </main>
 
-
   <footer class="site-footer">
     <div class="site-footer-inner">
       <p class="site-footer-brand">GIRLHACKS 2026</p>
-      <p class="site-footer-tagline">NJIT Women in Computing Society</p>
+      <p class="site-footer-tagline">Women in Computing Society | New Jersey Institute of Technology</p>
       <div class="social-icons">
         <a href="mailto:wicsnjit@gmail.com"><img src="assets/icons8-email-48.png" alt="Email" /></a>
         <a href="https://www.linkedin.com/company/wicsnjit/posts/?feedView=all"><img src="assets/icons8-linkedin-48.png" alt="LinkedIn" /></a>
-        <a href="https://discord.com/invite/ZSuqcQaNG6"><img src="assets/icons8-discord-48.png" alt="Discord" /></a>
         <a href="https://www.instagram.com/girlhacksnjit/"><img src="assets/icons8-instagram-48.png" alt="Instagram" /></a>
       </div>
       <div class="site-footer-divider" aria-hidden="true"></div>
@@ -1434,7 +1456,7 @@
       const p = document.createElement("div");
       p.className = "particle";
       p.style.left = Math.random() * window.innerWidth + "px";
-      p.style.top = window.innerHeight * (0.6 + Math.random() * 0.3) + "px";
+      p.style.top = (Math.random() * window.innerHeight) + "px";  
       p.style.animationDuration = (3 + Math.random() * 3) + "s";
       container.appendChild(p);
       setTimeout(() => p.remove(), 6000);
@@ -1585,18 +1607,10 @@
 
     function initMlhBadge() {
       const badge = document.getElementById('mlh-trust-badge');
-      const hero = document.querySelector('.hero');
-      if (!badge || !hero) return;
+      if (!badge) return;
 
-
-      ScrollTrigger.create({
-        id: 'mlh-badge-hero',
-        trigger: hero,
-        scroller: document.documentElement,
-        start: 'bottom top',
-        onEnter: () => badge.classList.add('is-hidden'),
-        onLeaveBack: () => badge.classList.remove('is-hidden'),
-      });
+      // Keep the badge visible at all times, regardless of scroll position.
+      badge.classList.remove('is-hidden');
     }
 
 
@@ -1665,7 +1679,7 @@
 
 
       const stops = [
-        { selector: '.hero h1', side: 'left' },
+        { selector: '.hero-logo', side: 'left' },
         { selector: '#about .section-title', side: 'right' },
         { selector: '#tracks .section-title', side: 'left' },
         { selector: '#schedule .section-title', side: 'right' },
@@ -1949,4 +1963,3 @@
 
 </body>
 </html>
-
