@@ -798,8 +798,8 @@
     .sponsors-container::after { right: 10px; }
 
     .terrarium-shelf {
-      --shelf-pulse-soft: rgba(186, 121, 214, 0.25);
-      --shelf-pulse-strong: rgba(186, 121, 214, 0.55);
+      --shelf-pulse-soft: rgba(186, 121, 214, 0.18);
+      --shelf-pulse-strong: rgba(186, 121, 214, 0.35);
       --shelf-label: #fae6ff;
       --plaque-border: rgba(186, 121, 214, 0.55);
       --plaque-glow: rgba(186, 121, 214, 0.3);
@@ -812,36 +812,40 @@
     }
 
     .terrarium-shelf--oak {
-      --shelf-pulse-soft: rgba(218, 165, 80, 0.28);
-      --shelf-pulse-strong: rgba(255, 214, 120, 0.72);
+      --shelf-pulse-soft: rgba(218, 165, 80, 0.2);
+      --shelf-pulse-strong: rgba(255, 214, 120, 0.45);
       --shelf-label: #f5e6c8;
       --plaque-border: rgba(218, 165, 80, 0.65);
       --plaque-glow: rgba(218, 165, 80, 0.35);
+      --logo-size: 230px;
     }
 
     .terrarium-shelf--redwood {
-      --shelf-pulse-soft: rgba(212, 140, 64, 0.28);
-      --shelf-pulse-strong: rgba(255, 180, 90, 0.7);
+      --shelf-pulse-soft: rgba(212, 140, 64, 0.2);
+      --shelf-pulse-strong: rgba(255, 180, 90, 0.45);
       --shelf-label: #ffe0b8;
       --plaque-border: rgba(212, 140, 64, 0.6);
       --plaque-glow: rgba(212, 140, 64, 0.32);
-      --logo-size: 148px;
+      --logo-size: 350px;
+      --logo-height: 140px;
     }
 
     .terrarium-shelf--ironwood {
-      --shelf-pulse-soft: rgba(212, 140, 64, 0.22);
-      --shelf-pulse-strong: rgba(255, 180, 90, 0.58);
+      --shelf-pulse-soft: rgba(212, 140, 64, 0.16);
+      --shelf-pulse-strong: rgba(255, 180, 90, 0.38);
       --shelf-label: #ffe0b8;
       --plaque-border: rgba(196, 150, 90, 0.55);
       --plaque-glow: rgba(196, 150, 90, 0.28);
+      --logo-size: 132px;
     }
 
     .terrarium-shelf--birch {
-      --shelf-pulse-soft: rgba(190, 205, 220, 0.28);
-      --shelf-pulse-strong: rgba(230, 240, 255, 0.7);
+      --shelf-pulse-soft: rgba(190, 205, 220, 0.2);
+      --shelf-pulse-strong: rgba(230, 240, 255, 0.45);
       --shelf-label: #eef4fa;
       --plaque-border: rgba(186, 121, 214, 0.5);
       --plaque-glow: rgba(200, 214, 230, 0.3);
+      --logo-size: 220px;
     }
 
     /* Ornate wood-carved / whimsical plaque for tier titles */
@@ -958,7 +962,7 @@
     .sponsor-cloche-logo {
       position: relative;
       width: var(--logo-size);
-      height: var(--logo-size);
+      height: var(--logo-height, var(--logo-size));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1004,11 +1008,11 @@
 
     @keyframes cloche-pulse {
       0%, 100% {
-        filter: drop-shadow(0 0 8px var(--shelf-pulse-soft));
-        opacity: 0.92;
+        filter: drop-shadow(0 0 3px var(--shelf-pulse-soft));
+        opacity: 0.99;
       }
       50% {
-        filter: drop-shadow(0 0 18px var(--shelf-pulse-strong)) drop-shadow(0 0 32px var(--shelf-pulse-soft));
+        filter: drop-shadow(0 0 6px var(--shelf-pulse-strong));
         opacity: 1;
       }
     }
@@ -1036,6 +1040,23 @@
       .terrarium-shelf {
         padding: 16px 8px 0;
         --logo-size: 112px;
+      }
+
+      .terrarium-shelf--oak {
+        --logo-size: 150px;
+      }
+
+      .terrarium-shelf--redwood {
+        --logo-size: 220px;
+        --logo-height: 88px;
+      }
+
+      .terrarium-shelf--ironwood {
+        --logo-size: 100px;
+      }
+
+      .terrarium-shelf--birch {
+        --logo-size: 156px;
       }
 
       .terrarium-shelf-items {
@@ -1950,7 +1971,7 @@
 
             <article class="sponsor-cloche" tabindex="0" aria-label="Crowdstrike, Silver Birch sponsor">
               <div class="sponsor-cloche-logo">
-                <span class="sponsor-cloche-fallback">Crowdstrike</span>
+                <img src="assets/crowdstrike-logo.png" alt="Crowdstrike" />
               </div>
             </article>
           </div>
