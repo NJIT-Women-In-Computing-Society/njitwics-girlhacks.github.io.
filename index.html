@@ -848,6 +848,15 @@
       --logo-size: 220px;
     }
 
+    .terrarium-shelf--inkind {
+      --shelf-pulse-soft: rgba(186, 121, 214, 0.18);
+      --shelf-pulse-strong: rgba(200, 150, 220, 0.4);
+      --shelf-label: #f0e0f8;
+      --plaque-border: rgba(186, 121, 214, 0.45);
+      --plaque-glow: rgba(186, 121, 214, 0.28);
+      --logo-size: 140px;
+    }
+
     /* Ornate wood-carved / whimsical plaque for tier titles */
     .terrarium-shelf-label {
       position: relative;
@@ -951,6 +960,9 @@
       flex-direction: column;
       align-items: center;
       outline: none;
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
     }
 
     .sponsor-cloche:focus-visible {
@@ -975,6 +987,7 @@
     .terrarium-shelf--ironwood .sponsor-cloche-logo { animation-duration: 4.2s; animation-delay: -1.4s; }
     .terrarium-shelf--birch .sponsor-cloche-logo { animation-duration: 3.8s; animation-delay: -0.4s; }
     .terrarium-shelf--birch .sponsor-cloche:nth-child(2) .sponsor-cloche-logo { animation-delay: -1.8s; }
+    .terrarium-shelf--inkind .sponsor-cloche-logo { animation-duration: 4s; animation-delay: -1s; }
 
     .sponsor-cloche:hover .sponsor-cloche-logo,
     .sponsor-cloche:focus-within .sponsor-cloche-logo {
@@ -1057,6 +1070,10 @@
 
       .terrarium-shelf--birch {
         --logo-size: 156px;
+      }
+
+      .terrarium-shelf--inkind {
+        --logo-size: 110px;
       }
 
       .terrarium-shelf-items {
@@ -1918,11 +1935,11 @@
             <span class="terrarium-shelf-label-name">Ancient Oak</span>
           </div>
           <div class="terrarium-shelf-items">
-            <article class="sponsor-cloche" tabindex="0" aria-label="ADP, Ancient Oak sponsor">
+            <a class="sponsor-cloche" href="https://www.adp.com/" target="_blank" rel="noopener noreferrer" aria-label="ADP, Ancient Oak sponsor">
               <div class="sponsor-cloche-logo">
                 <img src="assets/ADP.png" alt="ADP" />
               </div>
-            </article>
+            </a>
           </div>
           <div class="terrarium-shelf-rail" aria-hidden="true"></div>
         </div>
@@ -1933,11 +1950,11 @@
             <span class="terrarium-shelf-label-name">Elder Redwood</span>
           </div>
           <div class="terrarium-shelf-items">
-            <article class="sponsor-cloche" tabindex="0" aria-label="Avanade, Elder Redwood sponsor">
+            <a class="sponsor-cloche" href="https://www.avanade.com/en-us" target="_blank" rel="noopener noreferrer" aria-label="Avanade, Elder Redwood sponsor">
               <div class="sponsor-cloche-logo">
                 <img src="assets/Avanade%20Color%20Logo%20RGB.png" alt="Avanade" />
               </div>
-            </article>
+            </a>
           </div>
           <div class="terrarium-shelf-rail" aria-hidden="true"></div>
         </div>
@@ -1948,32 +1965,47 @@
             <span class="terrarium-shelf-label-name">Ironwood</span>
           </div>
           <div class="terrarium-shelf-items">
-            <article class="sponsor-cloche is-dark-logo" tabindex="0" aria-label="Fiserv, Ironwood sponsor">
+            <a class="sponsor-cloche is-dark-logo" href="https://www.fiserv.com/en.html" target="_blank" rel="noopener noreferrer" aria-label="Fiserv, Ironwood sponsor">
               <div class="sponsor-cloche-logo">
                 <img src="assets/Fiserv.png" alt="Fiserv" />
               </div>
-            </article>
+            </a>
           </div>
           <div class="terrarium-shelf-rail" aria-hidden="true"></div>
         </div>
 
-        <!-- Bottom shelf: Silver Birch -->
-        <div class="terrarium-shelf terrarium-shelf--birch" data-shelf="bottom">
+        <!-- Shelf 4: Silver Birch -->
+        <div class="terrarium-shelf terrarium-shelf--birch" data-shelf="birch">
           <div class="terrarium-shelf-label">
             <span class="terrarium-shelf-label-name">Silver Birch</span>
           </div>
           <div class="terrarium-shelf-items">
-            <article class="sponsor-cloche" tabindex="0" aria-label="Merck, Silver Birch sponsor">
+            <a class="sponsor-cloche" href="https://www.merck.com/" target="_blank" rel="noopener noreferrer" aria-label="Merck, Silver Birch sponsor">
               <div class="sponsor-cloche-logo">
                 <img src="assets/02852_Merck_Logo_Horizontal_Teal%26Grey_RGB.png" alt="Merck" />
               </div>
-            </article>
+            </a>
 
-            <article class="sponsor-cloche" tabindex="0" aria-label="Crowdstrike, Silver Birch sponsor">
+            <a class="sponsor-cloche" href="https://www.crowdstrike.com/en-us/" target="_blank" rel="noopener noreferrer" aria-label="Crowdstrike, Silver Birch sponsor">
               <div class="sponsor-cloche-logo">
                 <img src="assets/crowdstrike-logo.png" alt="Crowdstrike" />
               </div>
-            </article>
+            </a>
+          </div>
+          <div class="terrarium-shelf-rail" aria-hidden="true"></div>
+        </div>
+
+        <!-- Bottom shelf: In Kind -->
+        <div class="terrarium-shelf terrarium-shelf--inkind" data-shelf="bottom">
+          <div class="terrarium-shelf-label">
+            <span class="terrarium-shelf-label-name">In Kind</span>
+          </div>
+          <div class="terrarium-shelf-items">
+            <a class="sponsor-cloche" href="https://immieats.com/" target="_blank" rel="noopener noreferrer" aria-label="IMMI, In Kind sponsor">
+              <div class="sponsor-cloche-logo">
+                <img src="assets/IMMI_LOGO_YELLOW_RGB_1600px.png" alt="IMMI" />
+              </div>
+            </a>
           </div>
         </div>
       </div>
