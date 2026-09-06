@@ -579,8 +579,9 @@
     .tracks-carousel-track {
       display: flex;
       gap: 30px;
+      padding-right: 30px;
       width: max-content;
-      animation: tracks-scroll 28s linear infinite;
+      animation: tracks-scroll 42s linear infinite;
       will-change: transform;
     }
 
@@ -597,14 +598,21 @@
 
 
     .tracks-carousel .track-card {
-      flex: 0 0 300px;
-      min-width: 300px;
+      flex: 0 0 310px;
+      min-width: 310px;
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(157, 220, 255, 0.1);
       border-radius: 16px;
-      padding: 30px;
+      padding: 28px 24px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+    }
+    .track-card > :last-child {
+      margin-bottom: 0;
     }
 
 
@@ -615,9 +623,50 @@
     }
 
 
-    .track-icon { font-size: 2.5rem; margin-bottom: 15px; display: inline-block; }
-    .track-card h3 { font-family: 'Cinzel', serif; font-size: 1.4rem; margin-bottom: 15px; color: #9ddcff; }
-    .track-card p { font-size: 0.95rem; color: rgba(245, 245, 245, 0.75); line-height: 1.6; }
+    .track-icon { font-size: 2.4rem; margin-bottom: 12px; display: inline-block; }
+    .track-card h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem;
+      line-height: 1.35;
+      margin-bottom: 12px;
+      color: #9ddcff;
+      min-height: 2.7em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .track-badge {
+      display: inline-block;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 500;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      border-radius: 999px;
+      padding: 3px 12px;
+      margin-bottom: 14px;
+    }
+    .track-badge--diversity {
+      color: #e5b9f7;
+      background: rgba(186, 121, 214, 0.15);
+      border: 1px solid rgba(186, 121, 214, 0.4);
+    }
+    .track-badge--beginner {
+      color: #b0f0bd;
+      background: rgba(90, 200, 130, 0.15);
+      border: 1px solid rgba(90, 200, 130, 0.4);
+    }
+    .track-badge--theme {
+      color: #ffe099;
+      background: rgba(255, 205, 80, 0.15);
+      border: 1px solid rgba(255, 205, 80, 0.4);
+    }
+    .track-card p {
+      font-size: 0.92rem;
+      color: rgba(245, 245, 245, 0.78);
+      line-height: 1.6;
+      margin: 0;
+    }
 
 
     @media (prefers-reduced-motion: reduce) {
@@ -988,6 +1037,7 @@
     .terrarium-shelf--birch .sponsor-cloche-logo { animation-duration: 3.8s; animation-delay: -0.4s; }
     .terrarium-shelf--birch .sponsor-cloche:nth-child(2) .sponsor-cloche-logo { animation-delay: -1.8s; }
     .terrarium-shelf--inkind .sponsor-cloche-logo { animation-duration: 4s; animation-delay: -1s; }
+    .terrarium-shelf--inkind .sponsor-cloche:nth-child(2) .sponsor-cloche-logo { animation-delay: -2.2s; }
 
     .sponsor-cloche:hover .sponsor-cloche-logo,
     .sponsor-cloche:focus-within .sponsor-cloche-logo {
@@ -1868,13 +1918,24 @@
     </div>
     <div class="tracks-carousel">
       <div class="tracks-carousel-track">
+        <!-- Main Track Cards -->
         <div class="track-card">
           <span class="track-icon">🌿</span>
-          <h3>Coming Soon</h3>
+          <h3>Many Paths, One Grove</h3>
+          <span class="track-badge track-badge--diversity">Diversity</span>
+          <p>For teams where more than 50% of members are women or non-binary, bringing a wider range of perspectives.</p>
+        </div>
+        <div class="track-card">
+          <span class="track-icon">🌱</span>
+          <h3>Sprouting Seeds</h3>
+          <span class="track-badge track-badge--beginner">Beginner</span>
+          <p>For teams with more than half their members new to hacking, taking their first steps into the Grove.</p>
         </div>
         <div class="track-card">
           <span class="track-icon">✨</span>
-          <h3>Coming Soon</h3>
+          <h3>Whimsical Wonders</h3>
+          <span class="track-badge track-badge--theme">On-Theme</span>
+          <p>For the project that best captures the spirit of the theme (Enchanted Grove), through storytelling, games, art, or interactive experiences.</p>
         </div>
         <div class="track-card">
           <span class="track-icon">🔮</span>
@@ -1884,13 +1945,79 @@
           <span class="track-icon">🦋</span>
           <h3>Coming Soon</h3>
         </div>
+
+        <!-- Repeated for seamless loop (hidden in reduced motion & from screen readers) -->
         <div class="track-card" aria-hidden="true">
           <span class="track-icon">🌿</span>
-          <h3>Coming Soon</h3>
+          <h3>Many Paths, One Grove</h3>
+          <span class="track-badge track-badge--diversity">Diversity</span>
+          <p>For teams where more than 50% of members are women or non-binary, bringing a wider range of perspectives.</p>
+        </div>
+        <div class="track-card" aria-hidden="true">
+          <span class="track-icon">🌱</span>
+          <h3>Sprouting Seeds</h3>
+          <span class="track-badge track-badge--beginner">Beginner</span>
+          <p>For teams with more than half their members new to hacking, taking their first steps into the Grove.</p>
         </div>
         <div class="track-card" aria-hidden="true">
           <span class="track-icon">✨</span>
+          <h3>Whimsical Wonders</h3>
+          <span class="track-badge track-badge--theme">On-Theme</span>
+          <p>For the project that best captures the spirit of the theme (Enchanted Grove), through storytelling, games, art, or interactive experiences.</p>
+        </div>
+        <div class="track-card" aria-hidden="true">
+          <span class="track-icon">🔮</span>
           <h3>Coming Soon</h3>
+        </div>
+        <div class="track-card" aria-hidden="true">
+          <span class="track-icon">🦋</span>
+          <h3>Coming Soon</h3>
+        </div>
+
+        <!-- Second Half for Seamless Infinite Animation -->
+        <div class="track-card" aria-hidden="true">
+          <span class="track-icon">🌿</span>
+          <h3>Many Paths, One Grove</h3>
+          <span class="track-badge track-badge--diversity">Diversity</span>
+          <p>For teams where more than 50% of members are women or non-binary, bringing a wider range of perspectives.</p>
+        </div>
+        <div class="track-card" aria-hidden="true">
+          <span class="track-icon">🌱</span>
+          <h3>Sprouting Seeds</h3>
+          <span class="track-badge track-badge--beginner">Beginner</span>
+          <p>For teams with more than half their members new to hacking, taking their first steps into the Grove.</p>
+        </div>
+        <div class="track-card" aria-hidden="true">
+          <span class="track-icon">✨</span>
+          <h3>Whimsical Wonders</h3>
+          <span class="track-badge track-badge--theme">On-Theme</span>
+          <p>For the project that best captures the spirit of the theme (Enchanted Grove), through storytelling, games, art, or interactive experiences.</p>
+        </div>
+        <div class="track-card" aria-hidden="true">
+          <span class="track-icon">🔮</span>
+          <h3>Coming Soon</h3>
+        </div>
+        <div class="track-card" aria-hidden="true">
+          <span class="track-icon">🦋</span>
+          <h3>Coming Soon</h3>
+        </div>
+        <div class="track-card" aria-hidden="true">
+          <span class="track-icon">🌿</span>
+          <h3>Many Paths, One Grove</h3>
+          <span class="track-badge track-badge--diversity">Diversity</span>
+          <p>For teams where more than 50% of members are women or non-binary, bringing a wider range of perspectives.</p>
+        </div>
+        <div class="track-card" aria-hidden="true">
+          <span class="track-icon">🌱</span>
+          <h3>Sprouting Seeds</h3>
+          <span class="track-badge track-badge--beginner">Beginner</span>
+          <p>For teams with more than half their members new to hacking, taking their first steps into the Grove.</p>
+        </div>
+        <div class="track-card" aria-hidden="true">
+          <span class="track-icon">✨</span>
+          <h3>Whimsical Wonders</h3>
+          <span class="track-badge track-badge--theme">On-Theme</span>
+          <p>For the project that best captures the spirit of the theme (Enchanted Grove), through storytelling, games, art, or interactive experiences.</p>
         </div>
         <div class="track-card" aria-hidden="true">
           <span class="track-icon">🔮</span>
@@ -2006,6 +2133,12 @@
                 <img src="assets/IMMI_LOGO_YELLOW_RGB_1600px.png" alt="IMMI" />
               </div>
             </a>
+
+            <a class="sponsor-cloche" href="https://www.wegmans.com/" target="_blank" rel="noopener noreferrer" aria-label="Wegmans, In Kind sponsor">
+              <div class="sponsor-cloche-logo">
+                <img src="assets/wegmans_logo.webp" alt="Wegmans" />
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -2033,7 +2166,7 @@
         </div>
         <div class="faq-item">
           <div class="faq-question">What is the format of the event?</div>
-          <div class="faq-answer"><p>The event will be held in person. We have so much planned for everyone, including virtual activities! We can't wait to see you there!</p></div>
+          <div class="faq-answer"><p>The event will be held in person. We have so much planned for everyone, we can't wait to see you there!</p></div>
         </div>
         <div class="faq-item">
           <div class="faq-question">Does it cost money to attend?</div>
